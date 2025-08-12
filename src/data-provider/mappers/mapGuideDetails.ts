@@ -11,7 +11,7 @@ export const mapGuideDetails = ({
 }): UiGuideDetailsProps => {
   return {
     __typename: componentData.__typename,
-    title: componentData.title,
+    title: pageData.title,
     description: pageData.description,
     publishedDate: pageData.publishedDate,
     chapters: pageData.chapters.items.map((chapter) => ({
