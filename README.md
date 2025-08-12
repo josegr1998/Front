@@ -39,5 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Add rich text renderign
 //TODO: Add guidelines to guide page component
 //TODO: Add images
+//TODO: ADd dictionaries
 
 # Front

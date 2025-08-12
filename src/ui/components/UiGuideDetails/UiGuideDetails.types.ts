@@ -3,6 +3,7 @@ import { ComponentType } from "@/network/types/common";
 type GuideChapter = {
   contentHtml: string;
   chapterName: string;
+  chapterTitle: string;
 };
 
 export type UiGuideDetailsProps = {

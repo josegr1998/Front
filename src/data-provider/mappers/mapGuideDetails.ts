@@ -17,6 +17,7 @@ export const mapGuideDetails = ({
     chapters: pageData.chapters.items.map((chapter) => ({
       contentHtml: chapter.content.html,
       chapterName: chapter.chapterName,
+      chapterTitle: chapter.title,
     })),
   };
 };

@@ -1,4 +1,6 @@
 import { UiGuideDetailsProps } from "./UiGuideDetails.types";
+import sanitizeHtml from "sanitize-html";
+import styles from "./UiGuideDetails.module.css";
 
 export const UiGuideDetails = ({
   title,
@@ -10,7 +12,7 @@ export const UiGuideDetails = ({
     <div className="min-h-screen bg-[var(--background)]">
       {/* Header Section */}
       <div className="border-b border-[var(--border)] bg-[var(--card)]">
-        <div className="mx-auto max-w-4xl px-6 py-12">
+        <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
               {title}
@@ -41,57 +43,89 @@ export const UiGuideDetails = ({
       </div>
 
       {/* Content Section */}
-      <div className="mx-auto max-w-4xl px-6 py-12">
-        <div className="space-y-8">
-          {/* Chapters */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-[var(--foreground)]">
-              Chapters ({chapters.length})
-            </h2>
-
-            <div className="space-y-4">
-              {chapters.map((chapter, index) => (
-                <div
-                  key={index}
-                  className="group rounded-lg border border-[var(--border)] bg-[var(--card)] p-6 transition-all hover:shadow-md hover:border-[var(--primary)]/20"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-sm font-medium">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1 space-y-3">
-                      <h3 className="text-lg font-medium text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
-                        {chapter.chapterName}
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="flex gap-12">
+          {/* Main Content */}
+          <div className="flex-1 max-w-4xl">
+            <div className="space-y-12">
+              {/* Chapters */}
+              <div className="space-y-8">
+                {chapters.map((chapter, index) => (
+                  <div
+                    key={index}
+                    id={`chapter-${index + 1}`}
+                    className="scroll-mt-20"
+                  >
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-sm font-medium">
+                          {index + 1}
+                        </div>
+                        <h2 className="text-2xl font-semibold text-[var(--foreground)]">
+                          {chapter.chapterName}
+                        </h2>
+                      </div>
+                      <h3 className="text-lg font-semibold text-[var(--foreground)]">
+                        {chapter.chapterTitle}
                       </h3>
                       <div
-                        className="prose prose-sm max-w-none text-[var(--muted-foreground)]"
+                        className={styles.richText}
                         dangerouslySetInnerHTML={{
-                          __html: chapter.contentHtml,
+                          __html: sanitizeHtml(chapter.contentHtml),
                         }}
                       />
                     </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Summary Card */}
+              <div className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium text-[var(--foreground)]">
+                      Guide Summary
+                    </h3>
+                    <p className="text-sm text-[var(--muted-foreground)] mt-1">
+                      {chapters.length} chapters • Complete guide
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-[var(--success)]"></div>
+                    <span className="text-sm font-medium text-[var(--success)]">
+                      Available
+                    </span>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
-          {/* Summary Card */}
-          <div className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-medium text-[var(--foreground)]">
-                  Guide Summary
+          {/* Navigation Sidebar */}
+          <div className="hidden lg:block w-64 shrink-0">
+            <div className="sticky top-20">
+              <div className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
+                <h3 className="text-lg font-medium text-[var(--foreground)] mb-4">
+                  Table of Contents
                 </h3>
-                <p className="text-sm text-[var(--muted-foreground)] mt-1">
-                  {chapters.length} chapters • Complete guide
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-[var(--success)]"></div>
-                <span className="text-sm font-medium text-[var(--success)]">
-                  Available
-                </span>
+                <nav className="space-y-2">
+                  {chapters.map((chapter, index) => (
+                    <a
+                      key={index}
+                      href={`#chapter-${index + 1}`}
+                      className="block text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors py-1 px-2 rounded hover:bg-[var(--background)]"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-medium text-[var(--primary)]">
+                          {index + 1}
+                        </span>
+                        <span className="line-clamp-2">
+                          {chapter.chapterName}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </nav>
               </div>
             </div>
           </div>
