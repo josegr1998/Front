@@ -2,7 +2,9 @@ import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
 import { DocumentNode } from "graphql";
 import { getContent } from "@/network/getContent";
-import { PageResponse } from "@/network/types/page";
+import { GuideResponse, PageResponse } from "@/network/types/page";
+import { GUIDES_QUERY } from "@/graphql/queries/guides";
+import { GuideListPageData } from "../mappers/mapGuidesList";
 
 type Props = {
   query: DocumentNode;
@@ -22,11 +24,24 @@ export const getPage = async ({ query }: Props): Promise<UiPage> => {
     fetchPolicy,
   });
 
-  console.log("data", data);
+  const guides = await getContent<GuideResponse>({
+    query: GUIDES_QUERY,
+    context: {
+      headers: {
+        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+      },
+    },
+    fetchPolicy,
+  });
+
+  const pageData = {
+    guides: guides.guide_All.items,
+  } as const satisfies GuideListPageData;
 
   const components = data.page_All.items[0].components.items;
   const title = data.page_All.items[0].title;
-  const mappedComponents = mapComponents({ components });
+
+  const mappedComponents = mapComponents({ components, pageData });
 
   return {
     title,

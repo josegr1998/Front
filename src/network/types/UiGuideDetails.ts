@@ -18,6 +18,8 @@ export type Guide = {
   __typename: string;
   publishedDate: string;
   description: string;
+  slug: string;
+  title: string;
   chapters: Items<GuideChapter>;
 };
 

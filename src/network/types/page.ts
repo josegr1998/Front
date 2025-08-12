@@ -20,6 +20,7 @@ export type Chapter = {
   content: {
     html: string;
   };
+  __typename: string;
 };
 
 export type Guide = {
@@ -27,6 +28,8 @@ export type Guide = {
   publishedDate: string;
   description: string;
   chapters: Items<Chapter>;
+  slug: string;
+  __typename: string;
 };
 
 type GuideItem = Guide & {

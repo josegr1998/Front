@@ -7,7 +7,7 @@ import {
 } from "../../network/types/common";
 
 import { mapGuideDetails } from "./mapGuideDetails";
-import { mapGuidesList } from "./mapGuidesList";
+import { GuideListPageData, mapGuidesList } from "./mapGuidesList";
 
 import { JSX } from "react";
 import { UiGuideDetails } from "@/ui/components/UiGuideDetails/UiGuideDetails";
@@ -17,7 +17,8 @@ import { Guide } from "@/network/types/page";
 
 type MapperProps = {
   componentData: UiComponentRaw;
-  pageData?: Guide;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageData?: any;
 };
 
 type ComponentMap = {
@@ -41,6 +42,7 @@ export const COMPONENT_MAPPER = {
       mapGuidesList({
         ...props,
         componentData: props.componentData as UiGuidesListRaw,
+        pageData: props.pageData as GuideListPageData,
       }),
     component: UiGuidesList,
   },
@@ -51,7 +53,8 @@ export const mapComponents = ({
   pageData,
 }: {
   components: UiComponentRaw[];
-  pageData?: Guide;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageData?: any;
 }) => {
   return components.map((component) => {
     const mapper = COMPONENT_MAPPER[component.__typename]?.mapper;
