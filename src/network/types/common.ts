@@ -3,6 +3,10 @@ import { UiGuidesList } from "./UiGuideList";
 
 export const COMPONENT_TYPES = ["UiGuideDetails", "UiGuidesList"] as const;
 
+export type Items<T> = {
+  items: T[];
+};
+
 export type ComponentType = (typeof COMPONENT_TYPES)[number];
 
 export type SystemInfo = {

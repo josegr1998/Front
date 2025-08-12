@@ -24,6 +24,5 @@ export type Guide = {
 export type UiGuideDetails = {
   itemsPerPage: number;
   title: string;
-  guide: Guide;
   _system_: TypeInfo;
 } & Component;

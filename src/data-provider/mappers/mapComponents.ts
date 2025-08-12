@@ -13,9 +13,11 @@ import { JSX } from "react";
 import { UiGuideDetails } from "@/ui/components/UiGuideDetails/UiGuideDetails";
 import { UiComponent as UiComponentMapped } from "@/ui/types/common";
 import { UiGuidesList } from "@/ui/components/UiGuidesList/UiGuidesList";
+import { Guide } from "@/network/types/page";
 
 type MapperProps = {
   componentData: UiComponentRaw;
+  pageData?: Guide;
 };
 
 type ComponentMap = {
@@ -30,6 +32,7 @@ export const COMPONENT_MAPPER = {
       mapGuideDetails({
         ...props,
         componentData: props.componentData as UiGuideDetailsRaw,
+        pageData: props.pageData as Guide,
       }),
     component: UiGuideDetails,
   },
@@ -43,7 +46,13 @@ export const COMPONENT_MAPPER = {
   },
 } as const satisfies Record<ComponentType, ComponentMap>;
 
-export const mapComponents = (components: UiComponentRaw[]) => {
+export const mapComponents = ({
+  components,
+  pageData,
+}: {
+  components: UiComponentRaw[];
+  pageData?: Guide;
+}) => {
   return components.map((component) => {
     const mapper = COMPONENT_MAPPER[component.__typename]?.mapper;
 
@@ -53,6 +62,6 @@ export const mapComponents = (components: UiComponentRaw[]) => {
       );
     }
 
-    return mapper({ componentData: component });
+    return mapper({ componentData: component, pageData });
   });
 };

@@ -1,5 +1,5 @@
 import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
-import { getPage } from "@/data-provider/pageService/getPage";
+import { getGuidePage } from "@/data-provider/pageService/getGuidePage";
 import { createGuidePageQuery } from "@/graphql/queries/guidePage";
 
 type Props = {
@@ -8,7 +8,8 @@ type Props = {
 
 export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
-  const data = await getPage({ query: createGuidePageQuery(slug) });
+
+  const data = await getGuidePage({ query: createGuidePageQuery(slug) });
 
   return (
     <div>

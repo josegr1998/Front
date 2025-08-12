@@ -12,17 +12,17 @@ type Props = {
   fetchPolicy?: "cache-first" | "cache-only" | "no-cache" | "network-only";
 };
 
-export const getContent = async ({
+export const getContent = async <T>({
   query,
   context,
   fetchPolicy = "cache-first",
-}: Props): Promise<PageResponse> => {
+}: Props): Promise<T> => {
   try {
     const { data } = (await client.query({
       query,
       context,
       fetchPolicy,
-    })) as { data: PageResponse };
+    })) as { data: T };
 
     return data;
   } catch (error) {
