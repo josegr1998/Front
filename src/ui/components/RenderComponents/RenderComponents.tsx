@@ -1,14 +1,12 @@
 import { JSX } from "react";
 import { UiGuideDetails } from "../UiGuideDetails/UiGuideDetails";
-import { UiComponent } from "@/types/graphql";
-
-const COMPONENT_TYPES = ["UiGuideDetails"] as const;
-
-type ComponentType = (typeof COMPONENT_TYPES)[number];
+import { UiComponent } from "@/ui/types/common";
+import { COMPONENT_TYPES, ComponentType } from "@/network/types/common";
 
 const COMPONENT_MAP = {
   UiGuideDetails: UiGuideDetails,
-} as const satisfies Record<ComponentType, () => JSX.Element>;
+  UiGuidesList: () => <div>UiGuidesList</div>,
+} as const satisfies Record<ComponentType, (props: UiComponent) => JSX.Element>;
 
 const isValidComponent = (type: string): type is ComponentType =>
   COMPONENT_TYPES.includes(type as ComponentType);

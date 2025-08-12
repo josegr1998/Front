@@ -1,10 +1,8 @@
-import { getClient } from "@/lib/apollo-server";
+import { client } from "@/network/services/apollo-server";
 import { HOME_PAGE_QUERY } from "@/graphql/queries/homepage";
-import { HomePageQueryResult } from "@/types/graphql";
+import { PageResult } from "@/network/types/page";
 
-export const getHomePage = async (): Promise<HomePageQueryResult> => {
-  const client = getClient();
-
+export const getHomePage = async (): Promise<PageResult> => {
   try {
     const { data } = await client.query({
       query: HOME_PAGE_QUERY,

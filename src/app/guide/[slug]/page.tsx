@@ -1,19 +1,17 @@
-import { RenderComponents } from "@/components/RenderComponents/RenderComponents";
-import { getPage } from "@/network/getPage";
+import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
+import { getPage } from "@/network/services/getGuidePage";
 
-export default async function GuidePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
   const data = await getPage(slug);
 
-  const components = data.page_All.items[0].components.items;
-
   return (
     <div>
-      <RenderComponents components={components} />
+      <RenderComponents components={data.components} />
     </div>
   );
 }
