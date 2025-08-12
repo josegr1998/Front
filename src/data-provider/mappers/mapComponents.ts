@@ -1,51 +1,25 @@
-import { UiGuideDetails as UiGuideDetailsRaw } from "../../network/types/UiGuideDetails";
-import { UiGuidesList as UiGuidesListRaw } from "../../network/types/UiGuideList";
-
-import {
-  ComponentType,
-  UiComponent as UiComponentRaw,
-} from "../../network/types/common";
-
-import { mapGuideDetails } from "./mapGuideDetails";
-import { mapGuidesList } from "./mapGuidesList";
-
-import { JSX } from "react";
-import { UiGuideDetails } from "@/ui/components/UiGuideDetails/UiGuideDetails";
-import { UiComponent as UiComponentMapped } from "@/ui/types/common";
-import { UiGuidesList } from "@/ui/components/UiGuidesList/UiGuidesList";
+import { COMPONENT_TYPES, ComponentType } from "../../network/types/common";
+import { COMPONENT_DEFINITIONS } from "../componentDefinitions";
 
 type MapperProps = {
-  componentData: UiComponentRaw;
-};
-
-type ComponentMap = {
-  mapper: (props: MapperProps) => UiComponentMapped;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: (props: any) => JSX.Element;
+  components: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageData?: any;
 };
 
-export const COMPONENT_MAPPER = {
-  UiGuideDetails: {
-    mapper: (props: MapperProps) =>
-      mapGuideDetails({
-        ...props,
-        componentData: props.componentData as UiGuideDetailsRaw,
-      }),
-    component: UiGuideDetails,
-  },
-  UiGuidesList: {
-    mapper: (props: MapperProps) =>
-      mapGuidesList({
-        ...props,
-        componentData: props.componentData as UiGuidesListRaw,
-      }),
-    component: UiGuidesList,
-  },
-} as const satisfies Record<ComponentType, ComponentMap>;
+const isValidComponent = (type: string): type is ComponentType =>
+  COMPONENT_TYPES.includes(type as ComponentType);
 
-export const mapComponents = (components: UiComponentRaw[]) => {
+export const mapComponents = ({ components, pageData }: MapperProps) => {
   return components.map((component) => {
-    const mapper = COMPONENT_MAPPER[component.__typename]?.mapper;
+    const typename = component.__typename;
+
+    if (!isValidComponent(typename)) {
+      throw new Error(`Invalid component type: ${typename}`);
+    }
+
+    const mapper = COMPONENT_DEFINITIONS[typename]?.mapper;
 
     if (!mapper) {
       throw new Error(
@@ -53,6 +27,6 @@ export const mapComponents = (components: UiComponentRaw[]) => {
       );
     }
 
-    return mapper({ componentData: component });
+    return mapper({ componentData: component, pageData });
   });
 };

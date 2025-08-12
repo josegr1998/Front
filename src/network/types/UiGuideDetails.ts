@@ -18,12 +18,13 @@ export type Guide = {
   __typename: string;
   publishedDate: string;
   description: string;
+  slug: string;
+  title: string;
   chapters: Items<GuideChapter>;
 };
 
 export type UiGuideDetails = {
   itemsPerPage: number;
   title: string;
-  guide: Guide;
   _system_: TypeInfo;
 } & Component;
