@@ -6,7 +6,6 @@ export const UiGuideDetails = ({
   publishedDate,
   chapters,
 }: UiGuideDetailsProps) => {
-  console.log(chapters);
   return (
     <div className="min-h-screen bg-[var(--background)]">
       {/* Header Section */}

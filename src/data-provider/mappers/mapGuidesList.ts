@@ -1,11 +1,11 @@
-import { UiGuideDetailsProps } from "@/ui/components/UiGuideDetails/UiGuideDetails.types";
 import { UiGuidesList } from "../../network/types/UiGuideList";
+import { UiGuidesListProps } from "@/ui/components/UiGuidesList/UiGuidesList.types";
 
 export const mapGuidesList = ({
   componentData,
 }: {
   componentData: UiGuidesList;
-}): UiGuideDetailsProps => {
+}): UiGuidesListProps => {
   return {
     __typename: componentData.__typename,
     title: componentData.title,

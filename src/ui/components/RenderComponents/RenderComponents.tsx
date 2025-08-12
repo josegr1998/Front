@@ -18,7 +18,8 @@ export const RenderComponents = ({ components }: Props) => {
         if (isValidComponent(typename)) {
           const Component = COMPONENT_MAPPER[typename].component;
 
-          return <Component key={typename} {...component} />;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any -- TODO: FIX
+          return <Component key={typename} {...(component as any)} />;
         }
 
         return null;

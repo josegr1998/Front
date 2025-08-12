@@ -20,8 +20,6 @@ export const getPage = async ({ query }: Props): Promise<UiPage> => {
     },
   });
 
-  console.log(data);
-
   const components = data.page_All.items[0].components.items;
 
   const title = data.page_All.items[0].title;

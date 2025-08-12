@@ -20,7 +20,8 @@ type MapperProps = {
 
 type ComponentMap = {
   mapper: (props: MapperProps) => UiComponentMapped;
-  component: (props: UiComponentMapped) => JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: (props: any) => JSX.Element;
 };
 
 export const COMPONENT_MAPPER = {
