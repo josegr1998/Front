@@ -1,5 +1,5 @@
 import { UiGuideDetailsProps } from "@/ui/components/UiGuideDetails/UiGuideDetails.types";
-import { UiGuideDetails } from "../types/UiGuideDetails";
+import { UiGuideDetails } from "../../network/types/UiGuideDetails";
 
 export const mapGuideDetails = ({
   componentData,

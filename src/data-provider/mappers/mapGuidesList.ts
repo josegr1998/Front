@@ -1,5 +1,5 @@
 import { UiGuideDetailsProps } from "@/ui/components/UiGuideDetails/UiGuideDetails.types";
-import { UiGuidesList } from "../types/UiGuideList";
+import { UiGuidesList } from "../../network/types/UiGuideList";
 
 export const mapGuidesList = ({
   componentData,

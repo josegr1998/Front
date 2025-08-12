@@ -1,5 +1,6 @@
 import { client } from "./apollo-server";
 import { DocumentNode } from "graphql";
+import { PageResponse } from "./types/page";
 
 type Props = {
   query: DocumentNode;
@@ -12,7 +13,10 @@ type Props = {
   };
 };
 
-export const getContent = async ({ query, context }: Props) => {
+export const getContent = async ({
+  query,
+  context,
+}: Props): Promise<PageResponse> => {
   try {
     const { data } = await client.query({
       query,

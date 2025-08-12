@@ -1,5 +1,5 @@
 import { UiComponent } from "@/ui/types/common";
-import { COMPONENT_TYPES, ComponentType } from "@/data-provider/types/common";
+import { COMPONENT_TYPES, ComponentType } from "@/network/types/common";
 import { COMPONENT_MAPPER } from "@/data-provider/mappers/mapComponents";
 
 const isValidComponent = (type: string): type is ComponentType =>

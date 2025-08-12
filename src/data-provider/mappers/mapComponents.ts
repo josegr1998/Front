@@ -1,8 +1,8 @@
-import { UiGuideDetails as UiGuideDetailsRaw } from "../types/UiGuideDetails";
-import { UiGuidesList as UiGuidesListRaw } from "../types/UiGuideList";
+import { UiGuideDetails as UiGuideDetailsRaw } from "../../network/types/UiGuideDetails";
+import { UiGuidesList as UiGuidesListRaw } from "../../network/types/UiGuideList";
 
 import { UiComponent } from "@/ui/types/common";
-import { ComponentType } from "../types/common";
+import { ComponentType } from "../../network/types/common";
 
 import { mapGuideDetails } from "./mapGuideDetails";
 import { mapGuidesList } from "./mapGuidesList";

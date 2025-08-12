@@ -1,4 +1,4 @@
-import { ComponentType } from "@/data-provider/types/common";
+import { ComponentType } from "@/network/types/common";
 
 export type UiGuideDetailsProps = {
   title: string;

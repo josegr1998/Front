@@ -1,0 +1,1 @@
+export const CACHE_REVALIDATE_TIME = 3600;

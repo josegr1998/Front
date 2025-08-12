@@ -8,7 +8,7 @@ export type Page = {
   };
 };
 
-export type PageResult = {
+export type PageResponse = {
   page_All: {
     items: Page[];
   };
