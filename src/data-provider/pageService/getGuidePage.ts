@@ -1,33 +1,54 @@
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
-import { getContentV2 } from "@/network/getContent";
-import { Guide, GuideResponse } from "@/network/types/page";
+import { getContent } from "@/network/getContent";
+import { GuideItemRaw, GuideResponse } from "@/network/types/page";
+import { createUrl, getCacheOptions } from "./utils";
+import { createGuidePageQuery } from "@/graphql/queries/guidePage";
+import { GuideDetailsPageData } from "../mappers/mapGuideDetails";
 
 type Props = {
-  query: string;
+  slug: string;
 };
 
-export const getGuidePage = async ({ query }: Props): Promise<UiPage> => {
-  const data = await getContentV2<GuideResponse>({
-    query,
+const formatPageData = ({
+  guide,
+}: {
+  guide: GuideItemRaw;
+}): GuideDetailsPageData => ({
+  chapters: guide.chapters,
+  title: guide.title,
+  publishedDate: guide.publishedDate,
+  description: guide.description,
+  __typename: guide.__typename,
+  slug: guide.slug,
+});
+
+export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
+  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
+
+  const url = createUrl({ isPreview });
+  const cacheOptions = getCacheOptions({ isPreview });
+
+  const guidePageResponse = await getContent<GuideResponse>({
+    query: createGuidePageQuery(slug),
+    url,
+    ...cacheOptions,
   });
 
-  const components = data.guide_All.items[0].components.items;
-  const title = data.guide_All.items[0].title;
+  const guidePage = guidePageResponse.guide_All.items[0];
 
-  const pageData = {
-    chapters: data.guide_All.items[0].chapters,
-    title: data.guide_All.items[0].title,
-    publishedDate: data.guide_All.items[0].publishedDate,
-    description: data.guide_All.items[0].description,
-    __typename: data.guide_All.items[0].__typename,
-    slug: data.guide_All.items[0].slug,
-  } as const satisfies Guide;
+  const pageComponents = guidePage.components.items;
+  const pageTitle = guidePage.title;
 
-  const mappedComponents = mapComponents({ components, pageData });
+  const formattedPageData = formatPageData({ guide: guidePage });
+
+  const mappedComponents = mapComponents({
+    components: pageComponents,
+    pageData: formattedPageData,
+  });
 
   return {
-    title,
+    title: pageTitle,
     components: mappedComponents,
   };
 };

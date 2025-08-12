@@ -1,13 +1,27 @@
-type PropsV2 = {
+import { CACHE_OPTION, DEFAULT_REVALIDATE_TIME } from "@/data-provider/consts";
+
+type Props = {
   query: string;
+  url: string;
+  cache?: RequestCache;
+  next?: {
+    revalidate: number;
+  };
 };
 
-export const getContentV2 = async <T>({ query }: PropsV2): Promise<T> => {
-  const response = await fetch(
-    `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
-    {
+export const getContent = async <T>({
+  query,
+  cache = CACHE_OPTION.NO_STORE,
+  next = {
+    revalidate: DEFAULT_REVALIDATE_TIME,
+  },
+  url,
+}: Props): Promise<T> => {
+  try {
+    const response = await fetch(url, {
       method: "POST",
-      cache: "no-store",
+      cache,
+      next,
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
         "Content-Type": "application/json",
@@ -15,10 +29,13 @@ export const getContentV2 = async <T>({ query }: PropsV2): Promise<T> => {
       body: JSON.stringify({
         query,
       }),
-    }
-  );
+    });
 
-  const { data } = await response.json();
+    const { data } = await response.json();
 
-  return data as T;
+    return data as T;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };

@@ -32,12 +32,12 @@ export type Guide = {
   __typename: string;
 };
 
-type GuideItem = Guide & {
+export type GuideItemRaw = Guide & {
   components: Items<UiComponent>;
 };
 
 export type GuideResponse = {
   guide_All: {
-    items: GuideItem[];
+    items: GuideItemRaw[];
   };
 };

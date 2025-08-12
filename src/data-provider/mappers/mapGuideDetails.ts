@@ -2,12 +2,14 @@ import { UiGuideDetailsProps } from "@/ui/components/UiGuideDetails/UiGuideDetai
 import { UiGuideDetails } from "../../network/types/UiGuideDetails";
 import { Guide } from "@/network/types/page";
 
+export type GuideDetailsPageData = Guide;
+
 export const mapGuideDetails = ({
   componentData,
   pageData,
 }: {
   componentData: UiGuideDetails;
-  pageData: Guide;
+  pageData: GuideDetailsPageData;
 }): UiGuideDetailsProps => {
   return {
     __typename: componentData.__typename,

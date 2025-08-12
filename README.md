@@ -33,14 +33,16 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-//TDDO: Check cache is working good
-//TOOD: Add preview to web spotlight
-//TODO: Create Button and Typography components
-//TODO: Add rich text renderign
+//TDDO: Check cache is working good - Done
+//TOOD: Add preview to web spotlight - Done
+//TODO: Create Button and Typography components - Done
+//TODO: Add rich text renderign - Done
 //TODO: Add guidelines to guide page component
 //TODO: Add images
 //TODO: ADd dictionaries
+//TODO: Add pagination and search if possible
 //TODO: Do not display the hashstag for hrefs and do not keep it in browser history
 //TODO: Make v2 version of components
+//TODO: Handle 404s
 
 # Front

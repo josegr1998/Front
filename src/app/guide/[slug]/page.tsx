@@ -1,17 +1,24 @@
 import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
 import { getGuidePage } from "@/data-provider/pageService/getGuidePage";
-import { createGuidePageQuery } from "@/graphql/queries/guidePage";
-import { getContentV2 } from "@/network/getContent";
+import { getContent } from "@/network/getContent";
 import { GuideResponse } from "@/network/types/page";
 import { GUIDES_QUERY } from "@/graphql/queries/guides";
+import { getCacheOptions } from "@/data-provider/pageService/utils";
+import { createUrl } from "@/data-provider/pageService/utils";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  const guides = await getContentV2<GuideResponse>({
+  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
+  const url = createUrl({ isPreview });
+  const cacheOptions = getCacheOptions({ isPreview });
+
+  const guides = await getContent<GuideResponse>({
     query: GUIDES_QUERY,
+    url,
+    ...cacheOptions,
   });
 
   return guides.guide_All.items.map((guide) => ({
@@ -22,7 +29,7 @@ export async function generateStaticParams() {
 export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
 
-  const data = await getGuidePage({ query: createGuidePageQuery(slug) });
+  const data = await getGuidePage({ slug });
 
   return (
     <div>
