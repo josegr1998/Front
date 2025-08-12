@@ -7,6 +7,7 @@ export const getContentV2 = async <T>({ query }: PropsV2): Promise<T> => {
     `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
     {
       method: "POST",
+      cache: "no-store",
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
         "Content-Type": "application/json",
