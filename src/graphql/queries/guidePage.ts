@@ -25,4 +25,4 @@ export const GUIDE_PAGE_QUERY = (slug: string) => gql`
   }
 `;
 
-export const getGuidePageQuery = (slug: string) => GUIDE_PAGE_QUERY(slug);
+export const createGuidePageQuery = (slug: string) => GUIDE_PAGE_QUERY(slug);

@@ -1,11 +1,15 @@
-import { getGuidePageQuery } from "@/graphql/queries/guidePage";
-import { client } from "@/network/services/apollo-server";
+import { client } from "@/network/apollo-server";
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
+import { DocumentNode } from "graphql";
 
-export const getPage = async (slug: string): Promise<UiPage> => {
+type Props = {
+  query: DocumentNode;
+};
+
+export const getPage = async ({ query }: Props): Promise<UiPage> => {
   const { data } = await client.query({
-    query: getGuidePageQuery(slug),
+    query,
   });
   const components = data.page_All.items[0].components.items;
 
