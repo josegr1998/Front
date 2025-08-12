@@ -1,22 +1,26 @@
 import { UiGuideDetails as UiGuideDetailsRaw } from "../../network/types/UiGuideDetails";
 import { UiGuidesList as UiGuidesListRaw } from "../../network/types/UiGuideList";
 
-import { UiComponent } from "@/ui/types/common";
-import { ComponentType } from "../../network/types/common";
+import {
+  ComponentType,
+  UiComponent as UiComponentRaw,
+} from "../../network/types/common";
 
 import { mapGuideDetails } from "./mapGuideDetails";
 import { mapGuidesList } from "./mapGuidesList";
 
 import { JSX } from "react";
 import { UiGuideDetails } from "@/ui/components/UiGuideDetails/UiGuideDetails";
+import { UiComponent as UiComponentMapped } from "@/ui/types/common";
+import { UiGuidesList } from "@/ui/components/UiGuidesList/UiGuidesList";
 
 type MapperProps = {
-  componentData: UiComponent;
+  componentData: UiComponentRaw;
 };
 
 type ComponentMap = {
-  mapper: (props: MapperProps) => UiComponent;
-  component: (props: UiComponent) => JSX.Element;
+  mapper: (props: MapperProps) => UiComponentMapped;
+  component: (props: UiComponentMapped) => JSX.Element;
 };
 
 export const COMPONENT_MAPPER = {
@@ -34,11 +38,11 @@ export const COMPONENT_MAPPER = {
         ...props,
         componentData: props.componentData as UiGuidesListRaw,
       }),
-    component: UiGuideDetails,
+    component: UiGuidesList,
   },
 } as const satisfies Record<ComponentType, ComponentMap>;
 
-export const mapComponents = (components: UiComponent[]) => {
+export const mapComponents = (components: UiComponentRaw[]) => {
   return components.map((component) => {
     const mapper = COMPONENT_MAPPER[component.__typename]?.mapper;
 

@@ -17,6 +17,18 @@ export const GUIDE_PAGE_QUERY = (slug: string) => gql`
             ... on UiGuideDetails {
               __typename
               title
+              guide {
+                publishedDate
+                description
+                chapters {
+                  items {
+                    content {
+                      html
+                    }
+                    chapterName
+                  }
+                }
+              }
             }
           }
         }

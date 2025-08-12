@@ -9,5 +9,11 @@ export const mapGuideDetails = ({
   return {
     __typename: componentData.__typename,
     title: componentData.title,
+    description: componentData.guide.description,
+    publishedDate: componentData.guide.publishedDate,
+    chapters: componentData.guide.chapters.items.map((chapter) => ({
+      contentHtml: chapter.content.html,
+      chapterName: chapter.chapterName,
+    })),
   };
 };
