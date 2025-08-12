@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const GUIDES_QUERY = gql`
+export const GUIDES_QUERY = `
   query MyQuery {
     guide_All {
       items {

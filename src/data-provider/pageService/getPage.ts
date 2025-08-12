@@ -1,37 +1,34 @@
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
-import { DocumentNode } from "graphql";
-import { getContent } from "@/network/getContent";
-import { GuideResponse, PageResponse } from "@/network/types/page";
+import { getContentV2 } from "@/network/getContent";
+import { GuideResponse } from "@/network/types/page";
 import { GUIDES_QUERY } from "@/graphql/queries/guides";
 import { GuideListPageData } from "../mappers/mapGuidesList";
+import { HOME_PAGE_QUERY } from "@/graphql/queries/homepage";
 
 type Props = {
-  query: DocumentNode;
+  query: string;
 };
 
 export const getPage = async ({ query }: Props): Promise<UiPage> => {
-  const isPreview = process.env.IS_PREVIEW === "true";
-  const fetchPolicy = isPreview ? "no-cache" : "cache-first";
-
-  const data = await getContent<PageResponse>({
-    query,
-    context: {
+  const response = await fetch(
+    `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        query: HOME_PAGE_QUERY,
+      }),
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+        "Content-Type": "application/json",
       },
-    },
-    fetchPolicy,
-  });
+    }
+  );
 
-  const guides = await getContent<GuideResponse>({
+  const { data } = await response.json();
+
+  const guides = await getContentV2<GuideResponse>({
     query: GUIDES_QUERY,
-    context: {
-      headers: {
-        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
-      },
-    },
-    fetchPolicy,
   });
 
   const pageData = {

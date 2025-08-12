@@ -1,25 +1,15 @@
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
-import { DocumentNode } from "graphql";
-import { getContent } from "@/network/getContent";
+import { getContentV2 } from "@/network/getContent";
 import { Guide, GuideResponse } from "@/network/types/page";
 
 type Props = {
-  query: DocumentNode;
+  query: string;
 };
 
 export const getGuidePage = async ({ query }: Props): Promise<UiPage> => {
-  const isPreview = process.env.IS_PREVIEW === "true";
-  const fetchPolicy = isPreview ? "no-cache" : "cache-first";
-
-  const data = await getContent<GuideResponse>({
+  const data = await getContentV2<GuideResponse>({
     query,
-    context: {
-      headers: {
-        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
-      },
-    },
-    fetchPolicy,
   });
 
   const components = data.guide_All.items[0].components.items;

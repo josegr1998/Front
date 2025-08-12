@@ -1,8 +1,5 @@
 import { HEADER_QUERY } from "@/graphql/queries/header";
 import { FOOTER_QUERY } from "@/graphql/queries/footer";
-import { client } from "@/network/apollo-server";
-import { HeaderResponse } from "@/network/types/header";
-import { FooterResponse } from "@/network/types/footer";
 import { mapHeader } from "../mappers/mapHeader";
 import { mapFooter } from "../mappers/mapFooter";
 import { UiFooterProps } from "@/ui/components/UiFooter/UiFooter.types";
@@ -14,13 +11,33 @@ type SiteConfig = {
 };
 
 export const getSiteConfig = async (): Promise<SiteConfig> => {
-  const { data: headerData } = await client.query<HeaderResponse>({
-    query: HEADER_QUERY,
-  });
+  const headerResponse = await fetch(
+    `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: HEADER_QUERY }),
+    }
+  );
 
-  const { data: footerData } = await client.query<FooterResponse>({
-    query: FOOTER_QUERY,
-  });
+  const { data: headerData } = await headerResponse.json();
+
+  const footerResponse = await fetch(
+    `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: FOOTER_QUERY }),
+    }
+  );
+
+  const { data: footerData } = await footerResponse.json();
 
   return {
     header: mapHeader(headerData.header),

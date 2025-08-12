@@ -1,32 +1,23 @@
-import { client } from "./apollo-server";
-import { DocumentNode } from "graphql";
-import { PageResponse } from "./types/page";
-
-type Props = {
-  query: DocumentNode;
-  context: {
-    headers: {
-      Authorization: string;
-    };
-  };
-  fetchPolicy?: "cache-first" | "cache-only" | "no-cache" | "network-only";
+type PropsV2 = {
+  query: string;
 };
 
-export const getContent = async <T>({
-  query,
-  context,
-  fetchPolicy = "cache-first",
-}: Props): Promise<T> => {
-  try {
-    const { data } = (await client.query({
-      query,
-      context,
-      fetchPolicy,
-    })) as { data: T };
+export const getContentV2 = async <T>({ query }: PropsV2): Promise<T> => {
+  const response = await fetch(
+    `https://preview-graphql.kontent.ai/${process.env.KONTENT_PROJECT_ID}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+      }),
+    }
+  );
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching content:", error);
-    throw error;
-  }
+  const { data } = await response.json();
+
+  return data as T;
 };
