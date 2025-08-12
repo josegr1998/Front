@@ -40,5 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Add guidelines to guide page component
 //TODO: Add images
 //TODO: ADd dictionaries
+//TODO: Do not display the hashstag for hrefs and do not keep it in browser history
+//TODO: Make v2 version of components
 
 # Front

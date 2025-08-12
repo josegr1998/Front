@@ -35,7 +35,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            {links.map((link, index) => (
+            {links.map((link) => (
               <Link
                 key={link.url}
                 href={link.url}
