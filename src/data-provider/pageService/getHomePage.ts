@@ -43,6 +43,7 @@ export const getHomePage = async (): Promise<UiPage> => {
   const pageData = formatPageData({ guides: guidesList });
 
   const components = homePageResponse.page_All.items[0].components.items;
+
   const title = homePageResponse.page_All.items[0].title;
 
   const mappedComponents = mapComponents({ components, pageData });

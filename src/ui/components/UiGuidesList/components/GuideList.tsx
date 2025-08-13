@@ -2,8 +2,9 @@
 
 import { Pagination } from "./Pagination";
 import { GuideCard } from "./GuideCard";
-import { Guide } from "../UiGuidesList.types";
+import { DictionaryKeys, Guide } from "../UiGuidesList.types";
 import { useGuideList } from "./GuideList.hooks";
+import { useDictionaryContext } from "../../DictionaryProvider/DictionaryProvider";
 
 type Props = {
   guides: Guide[];
@@ -19,11 +20,17 @@ export const GuideList = ({ guides, itemsPerPage }: Props) => {
     handlePageChange,
   } = useGuideList({ guides, itemsPerPage });
 
+  const getDictionaryText = useDictionaryContext<DictionaryKeys>();
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {paginatedGuides.map((guide, index) => (
-          <GuideCard key={index} {...guide} />
+          <GuideCard
+            key={index}
+            {...guide}
+            guideLabel={getDictionaryText("dictionary_item__guide")}
+          />
         ))}
       </div>
 

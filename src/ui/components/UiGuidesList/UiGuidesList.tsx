@@ -1,3 +1,4 @@
+import { DictionaryProvider } from "../DictionaryProvider/DictionaryProvider";
 import { UiGuidesListProps } from "./UiGuidesList.types";
 import { GuideList } from "./components/GuideList";
 import { GuideListHeader } from "./components/GuideListHeader";
@@ -7,17 +8,20 @@ export const UiGuidesList = ({
   title,
   guides,
   itemsPerPage,
+  dictionary,
 }: UiGuidesListProps) => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 py-12">
-      {/* Header */}
-      <GuideListHeader title={title} />
+      <DictionaryProvider dictionary={dictionary}>
+        {/* Header */}
+        <GuideListHeader title={title} />
 
-      {/* Guides Grid */}
-      <GuideList guides={guides} itemsPerPage={itemsPerPage} />
+        {/* Guides Grid */}
+        <GuideList guides={guides} itemsPerPage={itemsPerPage} />
 
-      {/* Empty State */}
-      {guides.length === 0 && <NoCardsAvailable />}
+        {/* Empty State */}
+        {guides.length === 0 && <NoCardsAvailable />}
+      </DictionaryProvider>
     </section>
   );
 };

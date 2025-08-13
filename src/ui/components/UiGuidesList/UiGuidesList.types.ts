@@ -7,9 +7,19 @@ export type Guide = {
   slug: string;
 };
 
+export type DictionaryKeys = "dictionary_item__guide";
+
+export type DictionaryItem = {
+  key: DictionaryKeys;
+  value: string;
+};
+
+export type Dictionary = DictionaryItem[];
+
 export type UiGuidesListProps = {
   title: string;
   guides: Guide[];
   itemsPerPage: number;
+  dictionary: DictionaryItem[];
   __typename: ComponentType;
 };

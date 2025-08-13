@@ -1,13 +1,23 @@
-import { Component, TypeInfo } from "./common";
+import { DictionaryKeys } from "@/ui/components/UiGuidesList/UiGuidesList.types";
+import { Component, Items, TypeInfo } from "./common";
 import { Guide } from "./UiGuideDetails";
 
-type System = {
-  codename: "newest_to_oldest" | "oldest_to_newest";
+type SortType = "newest_to_oldest" | "oldest_to_newest";
+
+type System<T> = {
+  codename: T;
 };
 
 export type ListOrderItem = {
-  _system_: System;
+  _system_: System<SortType>;
 };
+
+type DictionaryItem = {
+  _system_: System<DictionaryKeys>;
+  text: string;
+};
+
+export type UiGuideListDictionary = Items<DictionaryItem>;
 
 export type UiGuidesList = {
   itemsPerPage: number;
@@ -16,6 +26,7 @@ export type UiGuidesList = {
   listOrder: {
     items: ListOrderItem[];
   };
+  dictionary: UiGuideListDictionary;
 } & Component;
 
 export type GuideListResponse = {

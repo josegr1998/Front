@@ -14,6 +14,7 @@ type Props = {
   publishedDate: string;
   description: string;
   slug: string;
+  guideLabel: string;
 };
 
 export const GuideCard = ({
@@ -21,6 +22,7 @@ export const GuideCard = ({
   publishedDate,
   description,
   slug,
+  guideLabel,
 }: Props) => {
   return (
     <Link href={`/guide/${slug}`} className="group block">
@@ -29,7 +31,7 @@ export const GuideCard = ({
         <div className="mb-4">
           <div className="flex items-center justify-between mb-3">
             <Typography variant="tag" asChild>
-              <span> Guide</span>
+              <span> {guideLabel}</span>
             </Typography>
             <time className="text-xs text-[var(--muted-foreground)]">
               {formatDate(publishedDate)}
