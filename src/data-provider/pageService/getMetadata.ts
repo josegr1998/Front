@@ -1,6 +1,6 @@
 import { GUIDE_PAGE_QUERY } from "@/graphql/queries/guidePage";
 import { getContent } from "@/network/getContent";
-import { GuideResponse } from "@/network/types/page";
+import { GuideResponse } from "@/network/types/guide";
 import { getCacheOptions, createUrl } from "./utils";
 
 export const getMetadata = async (slug: string) => {

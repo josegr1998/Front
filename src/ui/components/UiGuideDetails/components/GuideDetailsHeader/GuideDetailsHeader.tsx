@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "../../Typography/Typography";
-import { RichText } from "../../RichText/RichText";
+import { Typography } from "@/ui/components/Typography/Typography";
+import { RichText } from "@/ui/components/RichText/RichText";
 
 type Props = {
   title: string;

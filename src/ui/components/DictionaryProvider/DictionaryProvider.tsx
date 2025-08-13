@@ -2,13 +2,11 @@
 
 import { createContext, useContext } from "react";
 
-type DictionaryContextType<T> = {
+type DictionaryContextType = {
   getDictionaryText: (key: string) => string | undefined;
 };
 
-const DictionaryContext = createContext<DictionaryContextType<unknown> | null>(
-  null
-);
+const DictionaryContext = createContext<DictionaryContextType | null>(null);
 
 type Props<T> = {
   dictionary: T;

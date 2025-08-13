@@ -1,8 +1,8 @@
 "use client";
 
 import { UiGuideDetailsProps } from "./UiGuideDetails.types";
-import { RichText } from "../RichText/RichText";
-import { GuideDetailsHeader } from "./components/GuideDetailsHeader";
+import { RichText } from "@/ui/components/RichText/RichText";
+import { GuideDetailsHeader } from "./components/GuideDetailsHeader/GuideDetailsHeader";
 
 export const UiGuideDetails_V2 = ({
   title,

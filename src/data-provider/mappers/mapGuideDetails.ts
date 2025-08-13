@@ -7,7 +7,7 @@ import {
   UiGuideDetails,
   UiGuideDetailsDictionary,
 } from "../../network/types/UiGuideDetails";
-import { Guide } from "@/network/types/page";
+import { Guide } from "@/network/types/guide";
 import { buildDictionary } from "./utils/dictionary";
 
 export type GuideDetailsPageData = Guide;

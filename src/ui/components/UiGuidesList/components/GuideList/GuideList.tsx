@@ -1,10 +1,10 @@
 "use client";
 
-import { Pagination } from "./Pagination";
-import { GuideCard } from "./GuideCard";
-import { DictionaryKeys, Guide } from "../UiGuidesList.types";
+import { Pagination } from "../Pagination/Pagination";
+import { GuideCard } from "../GuideCard/GuideCard";
+import { DictionaryKeys, Guide } from "../../UiGuidesList.types";
 import { useGuideList } from "./GuideList.hooks";
-import { useDictionaryContext } from "../../DictionaryProvider/DictionaryProvider";
+import { useDictionaryContext } from "../../../DictionaryProvider/DictionaryProvider";
 
 type Props = {
   guides: Guide[];

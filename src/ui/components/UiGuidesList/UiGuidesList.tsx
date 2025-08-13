@@ -1,8 +1,8 @@
 import { DictionaryProvider } from "../DictionaryProvider/DictionaryProvider";
 import { UiGuidesListProps } from "./UiGuidesList.types";
-import { GuideList } from "./components/GuideList";
-import { GuideListHeader } from "./components/GuideListHeader";
-import { NoCardsAvailable } from "./components/NoCardsAvailable";
+import { GuideList } from "./components/GuideList/GuideList";
+import { GuideListHeader } from "./components/GuideListHeader/GuideListHeader";
+import { NoCardsAvailable } from "./components/NoCardsAvailable/NoCardsAvailable";
 
 export const UiGuidesList = ({
   title,

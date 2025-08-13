@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Guide } from "../UiGuidesList.types";
+import { Guide } from "../../UiGuidesList.types";
 
 type GuideListProps = {
   guides: Guide[];

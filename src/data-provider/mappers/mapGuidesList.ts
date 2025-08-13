@@ -3,11 +3,12 @@ import {
   UiGuidesList,
 } from "../../network/types/UiGuideList";
 import {
-  DictionaryItem,
   UiGuidesListProps,
   Guide as MappedGuide,
+  DictionaryKeys,
 } from "@/ui/components/UiGuidesList/UiGuidesList.types";
-import { Guide } from "@/network/types/UiGuideDetails";
+import { Guide } from "@/network/types/guide";
+import { mapDictionary } from "./utils/dictionary";
 
 export type GuideListPageData = {
   guides: Guide[];
@@ -33,13 +34,6 @@ export const mapGuides = (guides: Guide[]): MappedGuide[] => {
   }));
 };
 
-const mapDictionary = (dictionary: UiGuideListDictionary): DictionaryItem[] => {
-  return dictionary.items.map((item) => ({
-    key: item._system_.codename,
-    value: item.text,
-  }));
-};
-
 export const mapGuidesList = ({
   componentData,
   pageData,
@@ -58,6 +52,8 @@ export const mapGuidesList = ({
     title: componentData.title,
     guides: mappedGuides,
     itemsPerPage: componentData.itemsPerPage,
-    dictionary: mapDictionary(componentData.dictionary),
+    dictionary: mapDictionary<UiGuideListDictionary, DictionaryKeys>(
+      componentData.dictionary
+    ),
   };
 };

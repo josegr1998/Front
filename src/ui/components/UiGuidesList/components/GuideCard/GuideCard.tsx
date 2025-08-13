@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typography } from "../../Typography/Typography";
+import { Typography } from "@/ui/components/Typography/Typography";
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString("en-US", {

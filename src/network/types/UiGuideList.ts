@@ -1,6 +1,6 @@
 import { DictionaryKeys } from "@/ui/components/UiGuidesList/UiGuidesList.types";
 import { Component, Items, System, TypeInfo } from "./common";
-import { Guide } from "./UiGuideDetails";
+import { Guide } from "./guide";
 
 type SortType = "newest_to_oldest" | "oldest_to_newest";
 
