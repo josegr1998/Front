@@ -28,7 +28,7 @@ export const mapGuides = (guides: Guide[]): MappedGuide[] => {
   return guides.map((guide) => ({
     title: guide.title,
     publishedDate: guide.publishedDate,
-    description: guide.description.html,
+    summary: guide.sumary,
     slug: guide.slug,
   }));
 };

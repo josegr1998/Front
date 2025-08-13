@@ -29,6 +29,7 @@ export type Guide = {
   description: {
     html: string;
   };
+  sumary: string;
   chapters: Items<Chapter>;
   slug: string;
   __typename: string;

@@ -15,7 +15,6 @@ export const GuideDetailsHeader = ({
   publishedDate,
   publishedDateLabel,
 }: Props) => {
-  console.log("description", description);
   return (
     <div className="border-b border-[var(--border)] bg-[var(--card)]">
       <div className="mx-auto max-w-7xl px-6 py-12">

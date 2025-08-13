@@ -38,15 +38,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Create Button and Typography components - Done
 //TODO: Add rich text renderign - Done
 //TODO: Add guidelines to guide page component
-//TODO: Add images
+//TODO: Add images x
 //TODO: ADd dictionaries - Done
-//TODO: Add pagination and search if possible - 1/2 Done
+//TODO: Add pagination and search if possible - 1/2 Done x
 //TODO: Do not display the hashstag for hrefs and do not keep it in browser history - Done
-//TODO: Make v2 version of components
+//TODO: Make v2 version of components - Done
 //TODO: Handle 404s - Done
 //TODO: Make description rich text - Done
-//TODO: Cleanup queries
-//TODO: Add metadata
-//TODO: Add summary field for cards
+//TODO: Cleanup queries - Done
+//TODO: Add metadata - Done
+//TODO: Add summary field for cards - Done
+//TODO: Add color to chapters - x
+//TODO: Improve types
 
 # Front

@@ -3,7 +3,7 @@ import { DEFAULT_REVALIDATE_TIME, CACHE_OPTION } from "../consts";
 export const getCacheOptions = ({ isPreview }: { isPreview: boolean }) => {
   const cacheOptions = isPreview
     ? {
-        cache: CACHE_OPTION.NO_STORE,
+        cache: CACHE_OPTION.DEFAULT,
       }
     : {
         cache: CACHE_OPTION.FORCE_CACHE,

@@ -1,44 +1,17 @@
+import { GUIDE_FRAGMENT_DEFINITION } from "../fragments/guide";
+
 export const GUIDE_PAGE_QUERY = (slug: string) => `
   query MyQuery {
-    guide_All(
-      where: {
-        slug: {
-          eq: "${slug}"
-        }
-      }
-    ) {
+    guide_All(where: { slug: { eq: "${slug}" } }) {
       items {
-        title
-        chapters {
-          items {
-            chapterName
-            content {
-              html
-            }
-            title
-          }
-        }
-        description {
-          html
-        }
-        publishedDate
-        components {
-          items {
-            title
-             dictionary {
-            items {
-              text
-              _system_ {
-                codename
-              }
-            }
-          }
-            __typename
-          }
-        }
+        ...${GUIDE_FRAGMENT_DEFINITION.name}
       }
     }
   }
-`;
 
-export const createGuidePageQuery = (slug: string) => GUIDE_PAGE_QUERY(slug);
+  ${GUIDE_FRAGMENT_DEFINITION.fragment}
+  ${GUIDE_FRAGMENT_DEFINITION.dependencies.join("\n")}
+`;
+export const createGuidePageQuery = (slug: string) => {
+  return GUIDE_PAGE_QUERY(slug);
+};

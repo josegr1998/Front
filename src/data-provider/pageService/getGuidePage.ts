@@ -21,6 +21,7 @@ const formatPageData = ({
   publishedDate: guide.publishedDate,
   description: guide.description,
   __typename: guide.__typename,
+  sumary: guide.sumary,
   slug: guide.slug,
 });
 

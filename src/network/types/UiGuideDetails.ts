@@ -14,6 +14,7 @@ export type GuideChapter = {
 export type Guide = {
   __typename: string;
   publishedDate: string;
+  sumary: string;
   description: {
     html: string;
   };
@@ -27,6 +28,13 @@ export type DictionaryItem = {
   text: string;
 };
 
+type VariantKeys = "v1" | "v2";
+
+type Variant = {
+  _system_: System<VariantKeys>;
+  codename: string;
+};
+
 export type UiGuideDetailsDictionary = Items<DictionaryItem>;
 
 export type UiGuideDetails = {
@@ -34,4 +42,5 @@ export type UiGuideDetails = {
   title: string;
   dictionary: UiGuideDetailsDictionary;
   _system_: TypeInfo;
+  variant: Items<Variant>;
 } & Component;

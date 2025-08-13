@@ -12,7 +12,7 @@ const formatDate = (dateString: string) => {
 type Props = {
   title: string;
   publishedDate: string;
-  description: string;
+  summary: string;
   slug: string;
   labels: {
     guideLabel: string;
@@ -24,7 +24,7 @@ type Props = {
 export const GuideCard = ({
   title,
   publishedDate,
-  description,
+  summary,
   slug,
   labels,
 }: Props) => {
@@ -62,7 +62,7 @@ export const GuideCard = ({
           }}
           asChild
         >
-          <p>{description}</p>
+          <p>{summary}</p>
         </Typography>
 
         {/* Card Footer */}
