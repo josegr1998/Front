@@ -1,29 +1,14 @@
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
 import { getContent } from "@/network/getContent";
-import { GuideItemRaw, GuideResponse } from "@/network/types/guide";
+import { GuideResponse } from "@/network/types/guide";
 import { createUrl, getCacheOptions } from "./utils";
 import { createGuidePageQuery } from "@/graphql/queries/guidePage";
-import { GuideDetailsPageData } from "../mappers/mapGuideDetails";
 import { notFound } from "next/navigation";
 
 type Props = {
   slug: string;
 };
-
-const formatPageData = ({
-  guide,
-}: {
-  guide: GuideItemRaw;
-}): GuideDetailsPageData => ({
-  chapters: guide.chapters,
-  title: guide.title,
-  publishedDate: guide.publishedDate,
-  description: guide.description,
-  __typename: guide.__typename,
-  sumary: guide.sumary,
-  slug: guide.slug,
-});
 
 export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
   const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
@@ -44,11 +29,9 @@ export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
   const pageComponents = guidePage.components.items;
   const pageTitle = guidePage.title;
 
-  const formattedPageData = formatPageData({ guide: guidePage });
-
   const mappedComponents = mapComponents({
     components: pageComponents,
-    pageData: formattedPageData,
+    contextData: guidePage,
   });
 
   return {
