@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Add rich text renderign - Done
 //TODO: Add guidelines to guide page component
 //TODO: Add images
-//TODO: ADd dictionaries
+//TODO: ADd dictionaries - Done
 //TODO: Add pagination and search if possible - 1/2 Done
 //TODO: Do not display the hashstag for hrefs and do not keep it in browser history - Done
 //TODO: Make v2 version of components

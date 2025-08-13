@@ -23,6 +23,14 @@ export const GUIDE_PAGE_QUERY = (slug: string) => `
         components {
           items {
             title
+             dictionary {
+            items {
+              text
+              _system_ {
+                codename
+              }
+            }
+          }
             __typename
           }
         }

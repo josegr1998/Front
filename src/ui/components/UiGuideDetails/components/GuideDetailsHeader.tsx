@@ -5,12 +5,14 @@ type Props = {
   title: string;
   description: string;
   publishedDate: string;
+  publishedDateLabel: string;
 };
 
 export const GuideDetailsHeader = ({
   title,
   description,
   publishedDate,
+  publishedDateLabel,
 }: Props) => {
   return (
     <div className="border-b border-[var(--border)] bg-[var(--card)]">
@@ -38,7 +40,8 @@ export const GuideDetailsHeader = ({
             </svg>
             <Typography variant="ag-small" asChild>
               <span>
-                Published {new Date(publishedDate).toLocaleDateString()}
+                {publishedDateLabel}{" "}
+                {new Date(publishedDate).toLocaleDateString()}
               </span>
             </Typography>
           </div>

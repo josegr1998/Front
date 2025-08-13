@@ -1,8 +1,5 @@
-import { Component, TypeInfo } from "./common";
-
-type Items<T> = {
-  items: T[];
-};
+import { DictionaryKeys } from "@/ui/components/UiGuideDetails/UiGuideDetails.types";
+import { Component, Items, TypeInfo, System } from "./common";
 
 type HtmlContent = {
   html: string;
@@ -23,8 +20,16 @@ export type Guide = {
   chapters: Items<GuideChapter>;
 };
 
+export type DictionaryItem = {
+  _system_: System<DictionaryKeys>;
+  text: string;
+};
+
+export type UiGuideDetailsDictionary = Items<DictionaryItem>;
+
 export type UiGuideDetails = {
   itemsPerPage: number;
   title: string;
+  dictionary: UiGuideDetailsDictionary;
   _system_: TypeInfo;
 } & Component;

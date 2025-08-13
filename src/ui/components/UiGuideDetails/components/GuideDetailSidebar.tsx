@@ -7,14 +7,18 @@ import { scrollToChapter } from "./GuideDetailSidebar.utils";
 
 type Props = {
   chapters: UiGuideDetailsProps["chapters"];
+  tableOfContentsLabel: string;
 };
 
-export const GuideDetailSidebar = ({ chapters }: Props) => (
+export const GuideDetailSidebar = ({
+  chapters,
+  tableOfContentsLabel,
+}: Props) => (
   <div className="hidden lg:block w-64 shrink-0">
     <div className="sticky top-20">
       <div className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
         <Typography variant="lg-bold" asChild>
-          <h3 className="mb-4">Table of Contents</h3>
+          <h3 className="mb-4">{tableOfContentsLabel}</h3>
         </Typography>
         <nav className="space-y-2">
           {chapters.map((chapter, index) => (

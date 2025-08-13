@@ -1,12 +1,8 @@
 import { DictionaryKeys } from "@/ui/components/UiGuidesList/UiGuidesList.types";
-import { Component, Items, TypeInfo } from "./common";
+import { Component, Items, System, TypeInfo } from "./common";
 import { Guide } from "./UiGuideDetails";
 
 type SortType = "newest_to_oldest" | "oldest_to_newest";
-
-type System<T> = {
-  codename: T;
-};
 
 export type ListOrderItem = {
   _system_: System<SortType>;
