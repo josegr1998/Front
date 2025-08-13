@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const FOOTER_QUERY = gql`
+export const FOOTER_QUERY = `
   query MyQuery {
     footer(codename: "footer") {
       copyright

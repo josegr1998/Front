@@ -26,18 +26,20 @@ export type Chapter = {
 export type Guide = {
   title: string;
   publishedDate: string;
-  description: string;
+  description: {
+    html: string;
+  };
   chapters: Items<Chapter>;
   slug: string;
   __typename: string;
 };
 
-type GuideItem = Guide & {
+export type GuideItemRaw = Guide & {
   components: Items<UiComponent>;
 };
 
 export type GuideResponse = {
   guide_All: {
-    items: GuideItem[];
+    items: GuideItemRaw[];
   };
 };

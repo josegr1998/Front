@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const HEADER_QUERY = gql`
+export const HEADER_QUERY = `
   query MyQuery {
     header(codename: "header") {
       title

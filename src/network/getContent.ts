@@ -1,32 +1,41 @@
-import { client } from "./apollo-server";
-import { DocumentNode } from "graphql";
-import { PageResponse } from "./types/page";
+import { CACHE_OPTION, DEFAULT_REVALIDATE_TIME } from "@/data-provider/consts";
 
 type Props = {
-  query: DocumentNode;
-  context: {
-    headers: {
-      Authorization: string;
-    };
+  query: string;
+  url: string;
+  cache?: RequestCache;
+  next?: {
+    revalidate: number;
   };
-  fetchPolicy?: "cache-first" | "cache-only" | "no-cache" | "network-only";
 };
 
 export const getContent = async <T>({
   query,
-  context,
-  fetchPolicy = "cache-first",
+  cache = CACHE_OPTION.NO_STORE,
+  next = {
+    revalidate: DEFAULT_REVALIDATE_TIME,
+  },
+  url,
 }: Props): Promise<T> => {
   try {
-    const { data } = (await client.query({
-      query,
-      context,
-      fetchPolicy,
-    })) as { data: T };
+    const response = await fetch(url, {
+      method: "POST",
+      cache,
+      next,
+      headers: {
+        Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+      }),
+    });
 
-    return data;
+    const { data } = await response.json();
+
+    return data as T;
   } catch (error) {
-    console.error("Error fetching content:", error);
+    console.error(error);
     throw error;
   }
 };

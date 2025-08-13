@@ -13,7 +13,10 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center space-x-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] shadow-lg">
+            <Link
+              href="/"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] shadow-lg"
+            >
               <svg
                 className="h-6 w-6 text-[var(--primary-foreground)]"
                 fill="none"
@@ -27,7 +30,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
               </svg>
-            </div>
+            </Link>
             <h1 className="text-xl font-bold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text">
               {title}
             </h1>
@@ -35,7 +38,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            {links.map((link, index) => (
+            {links.map((link) => (
               <Link
                 key={link.url}
                 href={link.url}

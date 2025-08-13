@@ -7,6 +7,10 @@ export type Items<T> = {
   items: T[];
 };
 
+export type System<T> = {
+  codename: T;
+};
+
 export type ComponentType = (typeof COMPONENT_TYPES)[number];
 
 export type SystemInfo = {

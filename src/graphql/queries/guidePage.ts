@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const GUIDE_PAGE_QUERY = (slug: string) => gql`
+export const GUIDE_PAGE_QUERY = (slug: string) => `
   query MyQuery {
     guide_All(
       where: {
@@ -20,11 +18,21 @@ export const GUIDE_PAGE_QUERY = (slug: string) => gql`
             title
           }
         }
-        description
+        description {
+          html
+        }
         publishedDate
         components {
           items {
             title
+             dictionary {
+            items {
+              text
+              _system_ {
+                codename
+              }
+            }
+          }
             __typename
           }
         }
