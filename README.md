@@ -47,7 +47,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Make description rich text - Done
 //TODO: Cleanup queries - Done
 //TODO: Add metadata - Done
-//TODO: Add summary field for cards
-//TODO: Add color to chapters
+//TODO: Add summary field for cards - Done
+//TODO: Add color to chapters - x
+//TODO: Improve types
 
 # Front

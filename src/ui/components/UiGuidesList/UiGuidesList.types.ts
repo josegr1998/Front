@@ -3,7 +3,7 @@ import { ComponentType } from "@/network/types/common";
 export type Guide = {
   title: string;
   publishedDate: string;
-  description: string;
+  summary: string;
   slug: string;
 };
 

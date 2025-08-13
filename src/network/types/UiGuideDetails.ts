@@ -14,6 +14,7 @@ export type GuideChapter = {
 export type Guide = {
   __typename: string;
   publishedDate: string;
+  sumary: string;
   description: {
     html: string;
   };

@@ -12,6 +12,7 @@ export const GUIDE_FRAGMENT_DEFINITION = {
           ...${CHAPTER_FRAGMENT_DEFINITION.name}
         }
       }
+      sumary
       description {
         ...${HTML_FRAGMENT_DEFINITION.name}
       }

@@ -8,6 +8,7 @@ export const GUIDES_QUERY = `
         description {
           ...${HTML_FRAGMENT_DEFINITION.name}
         }
+        sumary
         publishedDate
         slug
       }
