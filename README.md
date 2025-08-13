@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TOOD: Add preview to web spotlight - Done
 //TODO: Create Button and Typography components - Done
 //TODO: Add rich text renderign - Done
-//TODO: Add guidelines to guide page component
+//TODO: Add guidelines to guide page component - Done
 //TODO: Add images x
 //TODO: ADd dictionaries - Done
 //TODO: Add pagination and search if possible - 1/2 Done x
@@ -50,5 +50,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Add summary field for cards - Done
 //TODO: Add color to chapters - x
 //TODO: Improve types
+//TODO: Think about having 30s cache for the dmeo - Done
 
 # Front

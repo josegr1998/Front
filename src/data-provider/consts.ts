@@ -1,4 +1,6 @@
-export const DEFAULT_REVALIDATE_TIME = 60;
+export const DEFAULT_REVALIDATE_TIME = Number(
+  process.env.CACHE_DEFAULT_REVALIDATE_TIME || 60
+);
 
 export const CACHE_OPTION = {
   NO_STORE: "no-store",
