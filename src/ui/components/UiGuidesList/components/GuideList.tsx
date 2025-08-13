@@ -29,7 +29,11 @@ export const GuideList = ({ guides, itemsPerPage }: Props) => {
           <GuideCard
             key={index}
             {...guide}
-            guideLabel={getDictionaryText("dictionary_item__guide")}
+            labels={{
+              guideLabel: getDictionaryText("dictionary_item__guide"),
+              availableLabel: getDictionaryText("dictionary_item___available"),
+              readGuideLabel: getDictionaryText("dictionary_item___read_guide"),
+            }}
           />
         ))}
       </div>

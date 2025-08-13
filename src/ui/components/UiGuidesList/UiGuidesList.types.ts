@@ -7,7 +7,10 @@ export type Guide = {
   slug: string;
 };
 
-export type DictionaryKeys = "dictionary_item__guide";
+export type DictionaryKeys =
+  | "dictionary_item__guide"
+  | "dictionary_item___available"
+  | "dictionary_item___read_guide";
 
 export type DictionaryItem = {
   key: DictionaryKeys;
