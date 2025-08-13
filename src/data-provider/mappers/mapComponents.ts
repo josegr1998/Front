@@ -5,13 +5,13 @@ type MapperProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components: any[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  pageData?: any;
+  contextData?: any;
 };
 
 const isValidComponent = (type: string): type is ComponentType =>
   COMPONENT_TYPES.includes(type as ComponentType);
 
-export const mapComponents = ({ components, pageData }: MapperProps) => {
+export const mapComponents = ({ components, contextData }: MapperProps) => {
   return components.map((component) => {
     const typename = component.__typename;
 
@@ -27,6 +27,6 @@ export const mapComponents = ({ components, pageData }: MapperProps) => {
       );
     }
 
-    return mapper({ componentData: component, pageData });
+    return mapper({ componentData: component, contextData });
   });
 };

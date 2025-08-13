@@ -36,14 +36,14 @@ export const mapGuides = (guides: Guide[]): MappedGuide[] => {
 
 export const mapGuidesList = ({
   componentData,
-  pageData,
+  contextData,
 }: {
   componentData: UiGuidesList;
-  pageData: GuideListPageData;
+  contextData: GuideListPageData;
 }): UiGuidesListProps => {
   const sortOrder = componentData.listOrder.items[0]._system_.codename;
 
-  const sortedGuides = sortGuides(pageData.guides, sortOrder);
+  const sortedGuides = sortGuides(contextData.guides, sortOrder);
 
   const mappedGuides = mapGuides(sortedGuides);
 

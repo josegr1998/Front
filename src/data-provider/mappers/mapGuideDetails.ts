@@ -23,10 +23,10 @@ const mapDictionary = (
 
 export const mapGuideDetails = ({
   componentData,
-  pageData,
+  contextData,
 }: {
   componentData: UiGuideDetails;
-  pageData: GuideDetailsPageData;
+  contextData: GuideDetailsPageData;
 }): UiGuideDetailsProps => {
   const mappedDictionary = mapDictionary(componentData.dictionary);
   const getDictionaryItem = buildDictionary<DictionaryItem, DictionaryKeys>(
@@ -35,17 +35,17 @@ export const mapGuideDetails = ({
 
   return {
     __typename: componentData.__typename,
-    title: pageData.title,
-    description: pageData.description.html,
-    publishedDate: pageData.publishedDate,
-    chapters: pageData.chapters.items.map((chapter) => ({
+    title: contextData.title,
+    description: contextData.description.html,
+    publishedDate: contextData.publishedDate,
+    chapters: contextData.chapters.items.map((chapter) => ({
       contentHtml: chapter.content.html,
       chapterName: chapter.chapterName,
       chapterTitle: chapter.title,
     })),
     labels: {
       tableOfContentsLabel:
-        getDictionaryItem("dictionary_item___table_of_contents") || "",
+        getDictionaryItem("dictionary_item___published") || "",
       publishedDateLabel:
         getDictionaryItem("dictionary_item___published") || "",
     },
