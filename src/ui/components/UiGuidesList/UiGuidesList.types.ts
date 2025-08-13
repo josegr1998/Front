@@ -1,6 +1,6 @@
 import { ComponentType } from "@/network/types/common";
 
-type Guide = {
+export type Guide = {
   title: string;
   publishedDate: string;
   description: string;
@@ -10,5 +10,6 @@ type Guide = {
 export type UiGuidesListProps = {
   title: string;
   guides: Guide[];
+  itemsPerPage: number;
   __typename: ComponentType;
 };

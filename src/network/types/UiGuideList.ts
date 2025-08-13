@@ -1,8 +1,12 @@
-import { Component, SystemInfo, TypeInfo } from "./common";
+import { Component, TypeInfo } from "./common";
 import { Guide } from "./UiGuideDetails";
 
+type System = {
+  codename: "newest_to_oldest" | "oldest_to_newest";
+};
+
 export type ListOrderItem = {
-  _system_: SystemInfo;
+  _system_: System;
 };
 
 export type UiGuidesList = {

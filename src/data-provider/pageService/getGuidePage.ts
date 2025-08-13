@@ -5,6 +5,7 @@ import { GuideItemRaw, GuideResponse } from "@/network/types/page";
 import { createUrl, getCacheOptions } from "./utils";
 import { createGuidePageQuery } from "@/graphql/queries/guidePage";
 import { GuideDetailsPageData } from "../mappers/mapGuideDetails";
+import { notFound } from "next/navigation";
 
 type Props = {
   slug: string;
@@ -34,6 +35,8 @@ export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
     url,
     ...cacheOptions,
   });
+
+  if (!guidePageResponse.guide_All.items.length) notFound();
 
   const guidePage = guidePageResponse.guide_All.items[0];
 

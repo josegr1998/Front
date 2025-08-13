@@ -40,9 +40,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Add guidelines to guide page component
 //TODO: Add images
 //TODO: ADd dictionaries
-//TODO: Add pagination and search if possible
-//TODO: Do not display the hashstag for hrefs and do not keep it in browser history
+//TODO: Add pagination and search if possible - 1/2 Done
+//TODO: Do not display the hashstag for hrefs and do not keep it in browser history - Done
 //TODO: Make v2 version of components
-//TODO: Handle 404s
+//TODO: Handle 404s - Done
 
 # Front

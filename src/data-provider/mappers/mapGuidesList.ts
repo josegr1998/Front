@@ -6,6 +6,17 @@ export type GuideListPageData = {
   guides: Guide[];
 };
 
+const sortGuides = (guides: Guide[], listOrder: string) => {
+  if (listOrder === "newest_to_oldest")
+    return guides.sort(
+      (a, b) =>
+        new Date(b.publishedDate).getTime() -
+        new Date(a.publishedDate).getTime()
+    );
+
+  return guides;
+};
+
 export const mapGuidesList = ({
   componentData,
   pageData,
@@ -13,14 +24,14 @@ export const mapGuidesList = ({
   componentData: UiGuidesList;
   pageData: GuideListPageData;
 }): UiGuidesListProps => {
+  const sortOrder = componentData.listOrder.items[0]._system_.codename;
+
+  const sortedGuides = sortGuides(pageData.guides, sortOrder);
+
   return {
     __typename: componentData.__typename,
     title: componentData.title,
-    guides: pageData.guides.map((guide) => ({
-      title: guide.title,
-      publishedDate: guide.publishedDate,
-      description: guide.description,
-      slug: guide.slug,
-    })),
+    guides: sortedGuides,
+    itemsPerPage: componentData.itemsPerPage,
   };
 };
