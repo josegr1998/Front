@@ -49,5 +49,6 @@ export const mapGuideDetails = ({
       publishedDateLabel:
         getDictionaryItem("dictionary_item___published") || "",
     },
+    variant: componentData.variant.items[0]._system_.codename,
   };
 };

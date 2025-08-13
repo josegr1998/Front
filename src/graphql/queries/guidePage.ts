@@ -25,6 +25,13 @@ export const GUIDE_PAGE_QUERY = (slug: string) => `
         components {
           items {
             title
+            variant {
+               items {
+                _system_ {
+                  codename
+                }
+               }
+            }
              dictionary {
             items {
               text

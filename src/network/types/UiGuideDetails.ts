@@ -27,6 +27,13 @@ export type DictionaryItem = {
   text: string;
 };
 
+type VariantKeys = "v1" | "v2";
+
+type Variant = {
+  _system_: System<VariantKeys>;
+  codename: string;
+};
+
 export type UiGuideDetailsDictionary = Items<DictionaryItem>;
 
 export type UiGuideDetails = {
@@ -34,4 +41,5 @@ export type UiGuideDetails = {
   title: string;
   dictionary: UiGuideDetailsDictionary;
   _system_: TypeInfo;
+  variant: Items<Variant>;
 } & Component;

@@ -27,4 +27,5 @@ export type UiGuideDetailsProps = {
     tableOfContentsLabel: string;
     publishedDateLabel: string;
   };
+  variant: "v1" | "v2";
 };

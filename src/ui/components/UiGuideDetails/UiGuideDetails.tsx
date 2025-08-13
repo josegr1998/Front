@@ -1,34 +1,19 @@
 import { UiGuideDetailsProps } from "./UiGuideDetails.types";
-import { GuideDetailsHeader } from "./components/GuideDetailsHeader";
-import { GuideDetailsContent } from "./components/GuideDetailsContent";
-import { GuideDetailSidebar } from "./components/GuideDetailSidebar";
+import { UiGuideDetails_V1 } from "./UiGuideDetails_V1";
+import { UiGuideDetails_V2 } from "./UiGuideDetails_V2";
 
-export const UiGuideDetails = ({
-  title,
-  description,
-  publishedDate,
-  chapters,
-  labels,
-}: UiGuideDetailsProps) => {
-  return (
-    <div className="min-h-screen bg-[var(--background)]">
-      <GuideDetailsHeader
-        title={title}
-        description={description}
-        publishedDate={publishedDate}
-        publishedDateLabel={labels.publishedDateLabel}
-      />
+type ComponentVersion = "v1" | "v2";
 
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="flex gap-12">
-          <GuideDetailsContent chapters={chapters} />
+const COMPONENT_MAP = {
+  v1: UiGuideDetails_V1,
+  v2: UiGuideDetails_V2,
+} as const satisfies Record<
+  ComponentVersion,
+  React.ComponentType<UiGuideDetailsProps>
+>;
 
-          <GuideDetailSidebar
-            chapters={chapters}
-            tableOfContentsLabel={labels.tableOfContentsLabel}
-          />
-        </div>
-      </div>
-    </div>
-  );
+export const UiGuideDetails = (props: UiGuideDetailsProps) => {
+  const Component = COMPONENT_MAP[props.variant];
+
+  return <Component {...props} />;
 };
