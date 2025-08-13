@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "../../Typography/Typography";
+import { RichText } from "../../RichText/RichText";
 
 type Props = {
   title: string;
@@ -14,6 +15,7 @@ export const GuideDetailsHeader = ({
   publishedDate,
   publishedDateLabel,
 }: Props) => {
+  console.log("description", description);
   return (
     <div className="border-b border-[var(--border)] bg-[var(--card)]">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -21,9 +23,7 @@ export const GuideDetailsHeader = ({
           <Typography variant="4xl-bold" asChild>
             <h1>{title}</h1>
           </Typography>
-          <Typography variant="lg-regular" asChild>
-            <p>{description}</p>
-          </Typography>
+          <RichText contentHtml={description} />
           <div className="flex items-center gap-2 text-sm text-[var(--muted-foreground)]">
             <svg
               className="h-4 w-4"

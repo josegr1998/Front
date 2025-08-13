@@ -18,7 +18,9 @@ export const GUIDE_PAGE_QUERY = (slug: string) => `
             title
           }
         }
-        description
+        description {
+          html
+        }
         publishedDate
         components {
           items {

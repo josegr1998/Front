@@ -44,7 +44,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 //TODO: Do not display the hashstag for hrefs and do not keep it in browser history - Done
 //TODO: Make v2 version of components
 //TODO: Handle 404s - Done
-//TODO: Make description rich text
+//TODO: Make description rich text - Done
 //TODO: Cleanup queries
+//TODO: Add metadata
+//TODO: Add summary field for cards
 
 # Front

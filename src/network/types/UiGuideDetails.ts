@@ -14,7 +14,9 @@ export type GuideChapter = {
 export type Guide = {
   __typename: string;
   publishedDate: string;
-  description: string;
+  description: {
+    html: string;
+  };
   slug: string;
   title: string;
   chapters: Items<GuideChapter>;

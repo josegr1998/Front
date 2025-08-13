@@ -3,7 +3,9 @@ export const GUIDES_QUERY = `
     guide_All {
       items {
         title
-        description
+       description {
+        html
+      }
         publishedDate
         slug
       }

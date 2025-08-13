@@ -5,6 +5,7 @@ import {
 import {
   DictionaryItem,
   UiGuidesListProps,
+  Guide as MappedGuide,
 } from "@/ui/components/UiGuidesList/UiGuidesList.types";
 import { Guide } from "@/network/types/UiGuideDetails";
 
@@ -21,6 +22,15 @@ const sortGuides = (guides: Guide[], listOrder: string) => {
     );
 
   return guides;
+};
+
+export const mapGuides = (guides: Guide[]): MappedGuide[] => {
+  return guides.map((guide) => ({
+    title: guide.title,
+    publishedDate: guide.publishedDate,
+    description: guide.description.html,
+    slug: guide.slug,
+  }));
 };
 
 const mapDictionary = (dictionary: UiGuideListDictionary): DictionaryItem[] => {
@@ -41,10 +51,12 @@ export const mapGuidesList = ({
 
   const sortedGuides = sortGuides(pageData.guides, sortOrder);
 
+  const mappedGuides = mapGuides(sortedGuides);
+
   return {
     __typename: componentData.__typename,
     title: componentData.title,
-    guides: sortedGuides,
+    guides: mappedGuides,
     itemsPerPage: componentData.itemsPerPage,
     dictionary: mapDictionary(componentData.dictionary),
   };

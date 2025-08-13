@@ -36,7 +36,7 @@ export const mapGuideDetails = ({
   return {
     __typename: componentData.__typename,
     title: pageData.title,
-    description: pageData.description,
+    description: pageData.description.html,
     publishedDate: pageData.publishedDate,
     chapters: pageData.chapters.items.map((chapter) => ({
       contentHtml: chapter.content.html,
