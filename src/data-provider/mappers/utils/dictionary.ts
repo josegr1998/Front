@@ -1,3 +1,5 @@
+import { Items } from "@/network/types/common";
+
 type DictionaryItem = Record<string, string>;
 
 export const buildDictionary = <T extends DictionaryItem, K>(
@@ -22,10 +24,12 @@ type RawDictionaryItem = {
   text: string;
 };
 
-export const mapDictionary = <T extends RawDictionaryItem, K>(
-  dictionary: T[]
+type RawDictionary = Items<RawDictionaryItem>;
+
+export const mapDictionary = <T extends RawDictionary, K>(
+  dictionary: T
 ): MappedDictionary<K>[] => {
-  return dictionary.map((item) => ({
+  return dictionary.items.map((item) => ({
     key: item._system_.codename as K,
     value: item.text,
   }));
