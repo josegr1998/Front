@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { UiGuideDetailsProps } from "../UiGuideDetails.types";
-import { Typography } from "../../Typography/Typography";
+import { UiGuideDetailsProps } from "../../UiGuideDetails.types";
+import { Typography } from "../../../Typography/Typography";
 import { scrollToChapter } from "./GuideDetailSidebar.utils";
 
 type Props = {

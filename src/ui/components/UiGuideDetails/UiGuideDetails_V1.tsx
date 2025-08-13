@@ -1,7 +1,7 @@
 import { UiGuideDetailsProps } from "./UiGuideDetails.types";
-import { GuideDetailsHeader } from "./components/GuideDetailsHeader";
-import { GuideDetailsContent } from "./components/GuideDetailsContent";
-import { GuideDetailSidebar } from "./components/GuideDetailSidebar";
+import { GuideDetailsHeader } from "./components/GuideDetailsHeader/GuideDetailsHeader";
+import { GuideDetailsContent } from "./components/GuideDetailsContent/GuideDetailsContent";
+import { GuideDetailSidebar } from "./components/GuideDetailsSidebar/GuideDetailSidebar";
 
 export const UiGuideDetails_V1 = ({
   title,

@@ -24,6 +24,17 @@ export type TypeInfo = {
   };
 };
 
+export type Link = {
+  __typename: "Link";
+  title: string;
+  url: string;
+};
+
+export type Links = {
+  __typename: string;
+  items: Link[];
+};
+
 export type Component = {
   __typename: ComponentType;
 };

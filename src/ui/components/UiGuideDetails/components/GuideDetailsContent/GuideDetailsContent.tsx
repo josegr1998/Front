@@ -1,7 +1,7 @@
 import React from "react";
 
-import { UiGuideDetailsProps } from "../UiGuideDetails.types";
-import { GuideDetailsChapter } from "./GuideDetailsChapter";
+import { UiGuideDetailsProps } from "../../UiGuideDetails.types";
+import { GuideDetailsChapter } from "../GuideDetailsChapter/GuideDetailsChapter";
 
 type Props = {
   chapters: UiGuideDetailsProps["chapters"];

@@ -1,7 +1,7 @@
 import { UiPage } from "@/ui/types/common";
 import { mapComponents } from "../mappers/mapComponents";
 import { getContent } from "@/network/getContent";
-import { GuideItemRaw, GuideResponse } from "@/network/types/page";
+import { GuideItemRaw, GuideResponse } from "@/network/types/guide";
 import { createUrl, getCacheOptions } from "./utils";
 import { createGuidePageQuery } from "@/graphql/queries/guidePage";
 import { GuideDetailsPageData } from "../mappers/mapGuideDetails";

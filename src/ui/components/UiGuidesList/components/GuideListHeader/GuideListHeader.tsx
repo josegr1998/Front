@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "../../Typography/Typography";
+import { Typography } from "@/ui/components/Typography/Typography";
 
 type Props = {
   title: string;

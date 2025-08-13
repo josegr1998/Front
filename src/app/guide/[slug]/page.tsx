@@ -1,7 +1,7 @@
 import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
 import { getGuidePage } from "@/data-provider/pageService/getGuidePage";
 import { getContent } from "@/network/getContent";
-import { GuideResponse } from "@/network/types/page";
+import { GuideResponse } from "@/network/types/guide";
 import { GUIDES_QUERY } from "@/graphql/queries/guides";
 import { getCacheOptions } from "@/data-provider/pageService/utils";
 import { createUrl } from "@/data-provider/pageService/utils";

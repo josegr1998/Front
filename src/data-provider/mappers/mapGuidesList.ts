@@ -7,7 +7,7 @@ import {
   UiGuidesListProps,
   Guide as MappedGuide,
 } from "@/ui/components/UiGuidesList/UiGuidesList.types";
-import { Guide } from "@/network/types/UiGuideDetails";
+import { Guide } from "@/network/types/guide";
 
 export type GuideListPageData = {
   guides: Guide[];
