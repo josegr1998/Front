@@ -12,11 +12,9 @@ type Props = {
 
 export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
   const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
-  console.log("what the actual fuck --->", isPreview);
   const url = createUrl({ isPreview });
   const cacheOptions = getCacheOptions({ isPreview });
 
-  console.log("what --->", cacheOptions);
 
   const guidePageResponse = await getContent<GuideResponse>({
     query: createGuidePageQuery(slug),

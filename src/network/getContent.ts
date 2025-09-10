@@ -20,7 +20,7 @@ export const getContent = async <T>({
   console.log("I RUN --->", cache);
   console.log("I RUN --->", next);
   console.log("I RUN --->", query);
-
+  console.log("TESTING IF BUILD CACHE IS PERSISTED --->");
   const startTime = Date.now();
 
   // Add 2 second delay
