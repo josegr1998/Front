@@ -1,4 +1,49 @@
-import { CACHE_OPTION, DEFAULT_REVALIDATE_TIME } from "@/data-provider/consts";
+import { DEFAULT_REVALIDATE_TIME } from "@/data-provider/consts";
+import { createClient, RedisClientType } from "redis";
+
+// Global Redis client singleton
+let redisClient: RedisClientType | null = null;
+
+const getRedisClient = async () => {
+  try {
+    if (!redisClient) {
+      redisClient = createClient({
+        url: process.env.REDIS_URL,
+        socket: {
+          reconnectStrategy: (retries) => {
+            return Math.min(retries * 100, 3000);
+          },
+        },
+      });
+
+      redisClient.on("error", (error) => {
+        console.error("Redis Client Error:", error);
+        redisClient = null;
+      });
+
+      redisClient.on("connect", () => {});
+
+      redisClient.on("reconnecting", () => {});
+
+      await redisClient.connect();
+    }
+
+    // Verify connection
+    if (!redisClient.isOpen) {
+      await redisClient.connect();
+    }
+
+    return redisClient;
+  } catch (error) {
+    console.error("Error in getRedisClient:", error);
+    redisClient = null;
+    throw error;
+  }
+};
+
+const generateCacheKey = (url: string, query: string): string => {
+  return `content:${url}:${Buffer.from(query).toString("base64")}`;
+};
 
 type Props = {
   query: string;
@@ -11,25 +56,35 @@ type Props = {
 
 export const getContent = async <T>({
   query,
-  cache = CACHE_OPTION.NO_STORE,
+  cache = "force-cache", // Use force-cache for Next.js static generation
   next = {
     revalidate: DEFAULT_REVALIDATE_TIME,
   },
   url,
 }: Props): Promise<T> => {
-  console.log("I RUN --->", cache);
-  console.log("I RUN --->", next);
-  console.log("I RUN --->", query);
-  console.log("TESTING IF BUILD CACHE IS PERSISTED --->");
   const startTime = Date.now();
 
-  // Add 2 second delay
-  await new Promise(resolve => setTimeout(resolve, 2000));
-
   try {
+    const redis = await getRedisClient();
+    const cacheKey = generateCacheKey(url, query);
+    const cachedData = await redis.get(cacheKey);
+    await redis.ping();
+
+    if (cachedData) {
+      console.log("Using Redis cache");
+      const endTime = Date.now();
+      const duration = endTime - startTime;
+      console.log(`Cache hit! Retrieved from Redis in ${duration}ms`);
+      return JSON.parse(cachedData) as T;
+    }
+
+    // If no cache, add artificial delay
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // If no Redis cache, fetch from API
     const response = await fetch(url, {
       method: "POST",
-      cache,
+      cache, // This will use force-cache for Next.js static generation
       next,
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
@@ -41,6 +96,8 @@ export const getContent = async <T>({
     });
 
     const { data } = await response.json();
+
+    await redis.setEx(cacheKey, next.revalidate, JSON.stringify(data));
 
     const endTime = Date.now();
     const duration = endTime - startTime;
