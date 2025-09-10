@@ -24,10 +24,8 @@ export const getContent = async <T>({
   try {
     const response = await fetch(url, {
       method: "POST",
-      cache: "force-cache",
-      next: {
-        revalidate: 0,
-      },
+      cache,
+      next,
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
         "Content-Type": "application/json",

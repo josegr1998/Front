@@ -14,7 +14,7 @@ export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
   const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
 
   const url = createUrl({ isPreview });
-  const cacheOptions = getCacheOptions({ isPreview });
+  const cacheOptions = getCacheOptions({ isPreview: true });
 
   const guidePageResponse = await getContent<GuideResponse>({
     query: createGuidePageQuery(slug),
