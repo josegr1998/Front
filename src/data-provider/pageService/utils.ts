@@ -4,6 +4,7 @@ export const getCacheOptions = ({ isPreview }: { isPreview: boolean }) => {
   const cacheOptions = isPreview
     ? {
         cache: CACHE_OPTION.DEFAULT,
+
       }
     : {
         cache: CACHE_OPTION.FORCE_CACHE,

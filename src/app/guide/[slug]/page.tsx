@@ -12,6 +12,8 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const revalidate = 3600; // Revalidate every hour
+
 export async function generateStaticParams() {
   const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
   const url = createUrl({ isPreview });
