@@ -17,6 +17,10 @@ export const getContent = async <T>({
   },
   url,
 }: Props): Promise<T> => {
+  console.log("I RUN --->", cache);
+  console.log("I RUN --->", next);
+  console.log("I RUN --->", url);
+
   try {
     const response = await fetch(url, {
       method: "POST",

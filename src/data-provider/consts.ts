@@ -1,5 +1,5 @@
 export const DEFAULT_REVALIDATE_TIME = Number(
-  process.env.CACHE_DEFAULT_REVALIDATE_TIME || 60
+  process.env.CACHE_DEFAULT_REVALIDATE_TIME || 3600
 );
 
 export const CACHE_OPTION = {
