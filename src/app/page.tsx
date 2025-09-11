@@ -1,9 +1,9 @@
-import { getHomePage } from "@/data-provider/pageService/getHomePage";
-import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
+import { getHomePage } from '@/data-provider/pageService/getHomePage';
+import { RenderComponents } from '@/ui/components/RenderComponents/RenderComponents';
 
 export const metadata = {
-  title: "Home",
-  description: "Home",
+  title: 'Home',
+  description: 'Home',
 };
 
 export default async function Home() {

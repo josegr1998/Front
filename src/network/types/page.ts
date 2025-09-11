@@ -1,4 +1,4 @@
-import { UiComponent } from "./common";
+import { UiComponent } from './common';
 
 export type Page = {
   slug: string;

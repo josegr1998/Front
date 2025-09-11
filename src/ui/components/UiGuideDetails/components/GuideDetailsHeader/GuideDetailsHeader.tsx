@@ -1,6 +1,6 @@
-import React from "react";
-import { Typography } from "@/ui/components/Typography/Typography";
-import { RichText } from "@/ui/components/RichText/RichText";
+import React from 'react';
+import { Typography } from '@/ui/components/Typography/Typography';
+import { RichText } from '@/ui/components/RichText/RichText';
 
 type Props = {
   title: string;
@@ -39,7 +39,7 @@ export const GuideDetailsHeader = ({
             </svg>
             <Typography variant="ag-small" asChild>
               <span>
-                {publishedDateLabel}{" "}
+                {publishedDateLabel}{' '}
                 {new Date(publishedDate).toLocaleDateString()}
               </span>
             </Typography>

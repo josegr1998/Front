@@ -5,6 +5,6 @@ export const MULTIPLE_CHOICE_FRAGMENT = `
 `;
 
 export const MULTIPLE_CHOICE_FRAGMENT_DEFINITION = {
-  name: "MultipleChoice",
+  name: 'MultipleChoice',
   fragment: MULTIPLE_CHOICE_FRAGMENT,
 };

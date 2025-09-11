@@ -1,6 +1,6 @@
-import React from "react";
-import sanitizeHtml from "sanitize-html";
-import styles from "./RichText.module.css";
+import React from 'react';
+import sanitizeHtml from 'sanitize-html';
+import styles from './RichText.module.css';
 
 type Props = {
   contentHtml: string;

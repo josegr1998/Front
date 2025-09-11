@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #fafafa;
@@ -63,4 +63,3 @@ body {
 html {
   scroll-behavior: smooth;
 }
-

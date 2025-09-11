@@ -1,21 +1,21 @@
 import {
   UiGuideListDictionary,
   UiGuidesList,
-} from "../../network/types/UiGuideList";
+} from '../../network/types/UiGuideList';
 import {
   UiGuidesListProps,
   Guide as MappedGuide,
   DictionaryKeys,
-} from "@/ui/components/UiGuidesList/UiGuidesList.types";
-import { Guide } from "@/network/types/guide";
-import { mapDictionary } from "./utils/dictionary";
+} from '@/ui/components/UiGuidesList/UiGuidesList.types';
+import { Guide } from '@/network/types/guide';
+import { mapDictionary } from './utils/dictionary';
 
 export type GuideListPageData = {
   guides: Guide[];
 };
 
 const sortGuides = (guides: Guide[], listOrder: string) => {
-  if (listOrder === "newest_to_oldest")
+  if (listOrder === 'newest_to_oldest')
     return guides.sort(
       (a, b) =>
         new Date(b.publishedDate).getTime() -
@@ -26,7 +26,7 @@ const sortGuides = (guides: Guide[], listOrder: string) => {
 };
 
 export const mapGuides = (guides: Guide[]): MappedGuide[] => {
-  return guides.map((guide) => ({
+  return guides.map(guide => ({
     title: guide.title,
     publishedDate: guide.publishedDate,
     summary: guide.sumary,

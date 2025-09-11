@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Pagination } from "../Pagination/Pagination";
-import { GuideCard } from "../GuideCard/GuideCard";
-import { DictionaryKeys, Guide } from "../../UiGuidesList.types";
-import { useGuideList } from "./GuideList.hooks";
-import { useDictionaryContext } from "../../../DictionaryProvider/DictionaryProvider";
+import { Pagination } from '../Pagination/Pagination';
+import { GuideCard } from '../GuideCard/GuideCard';
+import { DictionaryKeys, Guide } from '../../UiGuidesList.types';
+import { useGuideList } from './GuideList.hooks';
+import { useDictionaryContext } from '../../../DictionaryProvider/DictionaryProvider';
 
 type Props = {
   guides: Guide[];
@@ -30,9 +30,9 @@ export const GuideList = ({ guides, itemsPerPage }: Props) => {
             key={index}
             {...guide}
             labels={{
-              guideLabel: getDictionaryText("dictionary_item__guide"),
-              availableLabel: getDictionaryText("dictionary_item___available"),
-              readGuideLabel: getDictionaryText("dictionary_item___read_guide"),
+              guideLabel: getDictionaryText('dictionary_item__guide'),
+              availableLabel: getDictionaryText('dictionary_item___available'),
+              readGuideLabel: getDictionaryText('dictionary_item___read_guide'),
             }}
           />
         ))}

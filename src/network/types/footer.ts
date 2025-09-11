@@ -1,4 +1,4 @@
-import { Links } from "./common";
+import { Links } from './common';
 
 export type Footer = {
   __typename: string;

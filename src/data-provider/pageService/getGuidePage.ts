@@ -1,25 +1,25 @@
-import { UiPage } from "@/ui/types/common";
-import { mapComponents } from "../mappers/mapComponents";
-import { getContent } from "@/network/getContent";
-import { GuideResponse } from "@/network/types/guide";
-import { createUrl, getCacheOptions } from "./utils";
-import { createGuidePageQuery } from "@/graphql/queries/guidePage";
-import { notFound } from "next/navigation";
+import { UiPage } from '@/ui/types/common';
+import { mapComponents } from '../mappers/mapComponents';
+import { getContent } from '@/network/getContent';
+import { GuideResponse } from '@/network/types/guide';
+import { createUrl, getCacheOptions } from './utils';
+import { createGuidePageQuery } from '@/graphql/queries/guidePage';
+import { notFound } from 'next/navigation';
 
 type Props = {
   slug: string;
 };
 
 export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
-  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
+  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === 'true';
   const url = createUrl({ isPreview });
   const cacheOptions = getCacheOptions({ isPreview });
-
 
   const guidePageResponse = await getContent<GuideResponse>({
     query: createGuidePageQuery(slug),
     url,
     ...cacheOptions,
+    slug,
   });
 
   if (!guidePageResponse.guide_All.items.length) notFound();

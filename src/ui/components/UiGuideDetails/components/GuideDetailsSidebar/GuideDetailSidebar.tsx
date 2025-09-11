@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
-import { UiGuideDetailsProps } from "../../UiGuideDetails.types";
-import { Typography } from "../../../Typography/Typography";
-import { scrollToChapter } from "./GuideDetailSidebar.utils";
+import React from 'react';
+import { UiGuideDetailsProps } from '../../UiGuideDetails.types';
+import { Typography } from '../../../Typography/Typography';
+import { scrollToChapter } from './GuideDetailSidebar.utils';
 
 type Props = {
-  chapters: UiGuideDetailsProps["chapters"];
+  chapters: UiGuideDetailsProps['chapters'];
   tableOfContentsLabel: string;
 };
 

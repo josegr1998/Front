@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { UiGuideDetailsProps } from "../../UiGuideDetails.types";
-import { GuideDetailsChapter } from "../GuideDetailsChapter/GuideDetailsChapter";
+import { UiGuideDetailsProps } from '../../UiGuideDetails.types';
+import { GuideDetailsChapter } from '../GuideDetailsChapter/GuideDetailsChapter';
 
 type Props = {
-  chapters: UiGuideDetailsProps["chapters"];
+  chapters: UiGuideDetailsProps['chapters'];
 };
 
 export const GuideDetailsContent = ({ chapters }: Props) => {

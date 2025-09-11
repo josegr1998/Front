@@ -1,6 +1,6 @@
-import { DICTIONARY_FRAGMENT_DEFINITION } from "./dictionary";
-import { MULTIPLE_CHOICE_FRAGMENT_DEFINITION } from "./multipleChoice";
-import { SYSTEM_FRAGMENT_DEFINITION } from "./system";
+import { DICTIONARY_FRAGMENT_DEFINITION } from './dictionary';
+import { MULTIPLE_CHOICE_FRAGMENT_DEFINITION } from './multipleChoice';
+import { SYSTEM_FRAGMENT_DEFINITION } from './system';
 
 export const UI_GUIDES_LIST_FRAGMENT = `
   fragment UiGuidesList on UiGuidesList {
@@ -30,7 +30,7 @@ export const UI_GUIDES_LIST_FRAGMENT = `
 `;
 
 export const UI_GUIDES_LIST_FRAGMENT_DEFINITION = {
-  name: "UiGuidesList",
+  name: 'UiGuidesList',
   fragment: UI_GUIDES_LIST_FRAGMENT,
   dependencies: [
     DICTIONARY_FRAGMENT_DEFINITION.fragment,

@@ -1,7 +1,7 @@
-import { UiGuideDetails } from "./UiGuideDetails";
-import { UiGuidesList } from "./UiGuideList";
+import { UiGuideDetails } from './UiGuideDetails';
+import { UiGuidesList } from './UiGuideList';
 
-export const COMPONENT_TYPES = ["UiGuideDetails", "UiGuidesList"] as const;
+export const COMPONENT_TYPES = ['UiGuideDetails', 'UiGuidesList'] as const;
 
 export type Items<T> = {
   items: T[];
@@ -25,7 +25,7 @@ export type TypeInfo = {
 };
 
 export type Link = {
-  __typename: "Link";
+  __typename: 'Link';
   title: string;
   url: string;
 };

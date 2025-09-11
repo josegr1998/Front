@@ -1,4 +1,4 @@
-import { Button } from "@/ui/components/Button/Button";
+import { Button } from '@/ui/components/Button/Button';
 
 interface PaginationProps {
   currentPage: number;
@@ -30,11 +30,11 @@ export const Pagination = ({
       </Button>
 
       {/* Page numbers */}
-      {visiblePages.map((page) => (
+      {visiblePages.map(page => (
         <Button
           key={page}
           onClick={() => onPageChange(page)}
-          variant={currentPage === page ? "default" : "outline"}
+          variant={currentPage === page ? 'default' : 'outline'}
           size="default"
           className="w-10 h-10 p-0"
         >

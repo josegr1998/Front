@@ -5,6 +5,6 @@ export const HTML_FRAGMENT = `
 `;
 
 export const HTML_FRAGMENT_DEFINITION = {
-  name: "RawHtml",
+  name: 'RawHtml',
   fragment: HTML_FRAGMENT,
 };

@@ -1,12 +1,12 @@
-import { DictionaryKeys } from "@/ui/components/UiGuideDetails/UiGuideDetails.types";
-import { Component, Items, TypeInfo, System } from "./common";
+import { DictionaryKeys } from '@/ui/components/UiGuideDetails/UiGuideDetails.types';
+import { Component, Items, TypeInfo, System } from './common';
 
 export type DictionaryItem = {
   _system_: System<DictionaryKeys>;
   text: string;
 };
 
-type VariantKeys = "v1" | "v2";
+type VariantKeys = 'v1' | 'v2';
 
 type Variant = {
   _system_: System<VariantKeys>;

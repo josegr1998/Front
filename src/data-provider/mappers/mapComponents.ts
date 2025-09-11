@@ -1,5 +1,5 @@
-import { COMPONENT_TYPES, ComponentType } from "../../network/types/common";
-import { COMPONENT_DEFINITIONS } from "../componentDefinitions";
+import { COMPONENT_TYPES, ComponentType } from '../../network/types/common';
+import { COMPONENT_DEFINITIONS } from '../componentDefinitions';
 
 type MapperProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,7 +12,7 @@ const isValidComponent = (type: string): type is ComponentType =>
   COMPONENT_TYPES.includes(type as ComponentType);
 
 export const mapComponents = ({ components, contextData }: MapperProps) => {
-  return components.map((component) => {
+  return components.map(component => {
     const typename = component.__typename;
 
     if (!isValidComponent(typename)) {

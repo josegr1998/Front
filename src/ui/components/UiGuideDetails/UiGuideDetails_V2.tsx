@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { UiGuideDetailsProps } from "./UiGuideDetails.types";
-import { RichText } from "@/ui/components/RichText/RichText";
-import { GuideDetailsHeader } from "./components/GuideDetailsHeader/GuideDetailsHeader";
+import { UiGuideDetailsProps } from './UiGuideDetails.types';
+import { RichText } from '@/ui/components/RichText/RichText';
+import { GuideDetailsHeader } from './components/GuideDetailsHeader/GuideDetailsHeader';
 
 export const UiGuideDetails_V2 = ({
   title,
@@ -18,7 +18,7 @@ export const UiGuideDetails_V2 = ({
       const offset = 70;
       window.scrollTo({
         top: elementPosition - offset,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   };

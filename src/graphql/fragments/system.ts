@@ -5,6 +5,6 @@ export const SYSTEM_FRAGMENT = `
 `;
 
 export const SYSTEM_FRAGMENT_DEFINITION = {
-  name: "System",
+  name: 'System',
   fragment: SYSTEM_FRAGMENT,
 };

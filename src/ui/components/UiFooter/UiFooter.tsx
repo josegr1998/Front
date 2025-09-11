@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { UiFooterProps } from "./UiFooter.types";
-import Link from "next/link";
+import { UiFooterProps } from './UiFooter.types';
+import Link from 'next/link';
 
 export const UiFooter = ({ copyright, title, links }: UiFooterProps) => {
   const currentYear = new Date().getFullYear();
@@ -94,7 +94,7 @@ export const UiFooter = ({ copyright, title, links }: UiFooterProps) => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {links.map((link) => (
+              {links.map(link => (
                 <li key={link.url}>
                   <Link
                     href={link.url}

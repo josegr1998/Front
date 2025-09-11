@@ -21,6 +21,6 @@ export const UI_GUIDE_DETAILS_FRAGMENT = `
 `;
 
 export const UI_GUIDE_DETAILS_FRAGMENT_DEFINITION = {
-  name: "UiGuideDetails",
+  name: 'UiGuideDetails',
   fragment: UI_GUIDE_DETAILS_FRAGMENT,
 };

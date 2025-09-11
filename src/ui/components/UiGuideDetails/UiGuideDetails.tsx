@@ -1,8 +1,8 @@
-import { UiGuideDetailsProps } from "./UiGuideDetails.types";
-import { UiGuideDetails_V1 } from "./UiGuideDetails_V1";
-import { UiGuideDetails_V2 } from "./UiGuideDetails_V2";
+import { UiGuideDetailsProps } from './UiGuideDetails.types';
+import { UiGuideDetails_V1 } from './UiGuideDetails_V1';
+import { UiGuideDetails_V2 } from './UiGuideDetails_V2';
 
-type ComponentVersion = "v1" | "v2";
+type ComponentVersion = 'v1' | 'v2';
 
 const COMPONENT_MAP = {
   v1: UiGuideDetails_V1,

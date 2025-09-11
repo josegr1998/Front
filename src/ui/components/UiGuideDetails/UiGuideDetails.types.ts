@@ -1,4 +1,4 @@
-import { ComponentType } from "@/network/types/common";
+import { ComponentType } from '@/network/types/common';
 
 type GuideChapter = {
   contentHtml: string;
@@ -7,8 +7,8 @@ type GuideChapter = {
 };
 
 export type DictionaryKeys =
-  | "dictionary_item___table_of_contents"
-  | "dictionary_item___published";
+  | 'dictionary_item___table_of_contents'
+  | 'dictionary_item___published';
 
 export type DictionaryItem = {
   key: DictionaryKeys;
@@ -27,5 +27,5 @@ export type UiGuideDetailsProps = {
     tableOfContentsLabel: string;
     publishedDateLabel: string;
   };
-  variant: "v1" | "v2";
+  variant: 'v1' | 'v2';
 };

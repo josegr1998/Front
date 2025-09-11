@@ -1,12 +1,12 @@
-import { RenderComponents } from "@/ui/components/RenderComponents/RenderComponents";
-import { getGuidePage } from "@/data-provider/pageService/getGuidePage";
-import { getContent } from "@/network/getContent";
-import { GuideResponse } from "@/network/types/guide";
-import { GUIDES_QUERY } from "@/graphql/queries/guides";
-import { getCacheOptions } from "@/data-provider/pageService/utils";
-import { createUrl } from "@/data-provider/pageService/utils";
-import { Metadata } from "next";
-import { getMetadata } from "@/data-provider/pageService/getMetadata";
+import { RenderComponents } from '@/ui/components/RenderComponents/RenderComponents';
+import { getGuidePage } from '@/data-provider/pageService/getGuidePage';
+import { getContent } from '@/network/getContent';
+import { GuideResponse } from '@/network/types/guide';
+import { GUIDES_QUERY } from '@/graphql/queries/guides';
+import { getCacheOptions } from '@/data-provider/pageService/utils';
+import { createUrl } from '@/data-provider/pageService/utils';
+import { Metadata } from 'next';
+import { getMetadata } from '@/data-provider/pageService/getMetadata';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,7 +15,7 @@ type Props = {
 export const revalidate = 3600; // Revalidate every hour
 
 export async function generateStaticParams() {
-  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === "true";
+  const isPreview = process.env.IS_PREVIEW?.toLowerCase() === 'true';
   const url = createUrl({ isPreview });
   const cacheOptions = getCacheOptions({ isPreview });
 
@@ -23,9 +23,10 @@ export async function generateStaticParams() {
     query: GUIDES_QUERY,
     url,
     ...cacheOptions,
+    slug: '/guides-params',
   });
 
-  return guides.guide_All.items.map((guide) => ({
+  return guides.guide_All.items.map(guide => ({
     slug: guide.slug,
   }));
 }

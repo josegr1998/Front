@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Button } from "@/ui/components/Button/Button";
-import { Typography } from "@/ui/components/Typography/Typography";
+import Link from 'next/link';
+import { Button } from '@/ui/components/Button/Button';
+import { Typography } from '@/ui/components/Typography/Typography';
 
 export default function NotFound() {
   return (

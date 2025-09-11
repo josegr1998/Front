@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { UiHeaderProps } from "./UiHeader.types";
-import Link from "next/link";
-import { useState } from "react";
+import { UiHeaderProps } from './UiHeader.types';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export const UiHeader = ({ title, links }: UiHeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            {links.map((link) => (
+            {links.map(link => (
               <Link
                 key={link.url}
                 href={link.url}
@@ -79,7 +79,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
           >
             <svg
               className={`h-6 w-6 transition-transform duration-200 ${
-                isMenuOpen ? "rotate-90" : ""
+                isMenuOpen ? 'rotate-90' : ''
               }`}
               fill="none"
               stroke="currentColor"
@@ -107,11 +107,11 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
         {/* Mobile Navigation */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <nav className="py-4 space-y-2 border-t border-[var(--border)] mt-4">
-            {links.map((link) => (
+            {links.map(link => (
               <Link
                 key={link.url}
                 href={link.url}

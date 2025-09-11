@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
 type DictionaryContextType = {
   getDictionaryText: (key: string) => string | undefined;
@@ -16,9 +16,9 @@ type Props<T> = {
 export const DictionaryProvider = <T,>({ dictionary, children }: Props<T>) => {
   const getDictionaryText = (key: string) => {
     if (Array.isArray(dictionary)) {
-      return dictionary.find((item) => item.key === key)?.value;
+      return dictionary.find(item => item.key === key)?.value;
     }
-    return "";
+    return '';
   };
 
   return (
@@ -30,7 +30,7 @@ export const DictionaryProvider = <T,>({ dictionary, children }: Props<T>) => {
 
 export const useDictionaryContext = <T,>() => {
   const context = useContext(DictionaryContext);
-  if (!context) throw new Error("Missing Dictionary context");
+  if (!context) throw new Error('Missing Dictionary context');
 
   return context.getDictionaryText as (key: T) => string;
 };

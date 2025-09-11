@@ -1,4 +1,4 @@
-import { HTML_FRAGMENT_DEFINITION } from "../fragments/html";
+import { HTML_FRAGMENT_DEFINITION } from '../fragments/html';
 
 export const GUIDES_QUERY = `
   query MyQuery {

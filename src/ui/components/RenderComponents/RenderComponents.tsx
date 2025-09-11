@@ -1,6 +1,6 @@
-import { UiComponent } from "@/ui/types/common";
-import { COMPONENT_TYPES, ComponentType } from "@/network/types/common";
-import { COMPONENT_DEFINITIONS } from "@/data-provider/componentDefinitions";
+import { UiComponent } from '@/ui/types/common';
+import { COMPONENT_TYPES, ComponentType } from '@/network/types/common';
+import { COMPONENT_DEFINITIONS } from '@/data-provider/componentDefinitions';
 
 const isValidComponent = (type: string): type is ComponentType =>
   COMPONENT_TYPES.includes(type as ComponentType);
@@ -12,7 +12,7 @@ type Props = {
 export const RenderComponents = ({ components }: Props) => {
   return (
     <div>
-      {components.map((component) => {
+      {components.map(component => {
         const typename = component.__typename;
 
         if (isValidComponent(typename)) {

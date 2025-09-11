@@ -1,10 +1,10 @@
-import React from "react";
-import { UiGuideDetailsProps } from "../../UiGuideDetails.types";
-import { RichText } from "@/ui/components/RichText/RichText";
-import { Typography } from "@/ui/components/Typography/Typography";
+import React from 'react';
+import { UiGuideDetailsProps } from '../../UiGuideDetails.types';
+import { RichText } from '@/ui/components/RichText/RichText';
+import { Typography } from '@/ui/components/Typography/Typography';
 
 type Props = {
-  chapter: UiGuideDetailsProps["chapters"][number];
+  chapter: UiGuideDetailsProps['chapters'][number];
   index: number;
 };
 

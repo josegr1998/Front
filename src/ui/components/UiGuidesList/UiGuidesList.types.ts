@@ -1,4 +1,4 @@
-import { ComponentType } from "@/network/types/common";
+import { ComponentType } from '@/network/types/common';
 
 export type Guide = {
   title: string;
@@ -8,9 +8,9 @@ export type Guide = {
 };
 
 export type DictionaryKeys =
-  | "dictionary_item__guide"
-  | "dictionary_item___available"
-  | "dictionary_item___read_guide";
+  | 'dictionary_item__guide'
+  | 'dictionary_item___available'
+  | 'dictionary_item___read_guide';
 
 export type DictionaryItem = {
   key: DictionaryKeys;

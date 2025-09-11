@@ -1,9 +1,9 @@
-import { CHAPTER_FRAGMENT_DEFINITION } from "./chapter";
-import { HTML_FRAGMENT_DEFINITION } from "./html";
-import { UI_GUIDE_DETAILS_FRAGMENT_DEFINITION } from "./uiGuideDetails";
+import { CHAPTER_FRAGMENT_DEFINITION } from './chapter';
+import { HTML_FRAGMENT_DEFINITION } from './html';
+import { UI_GUIDE_DETAILS_FRAGMENT_DEFINITION } from './uiGuideDetails';
 
 export const GUIDE_FRAGMENT_DEFINITION = {
-  name: "Guide",
+  name: 'Guide',
   fragment: `
     fragment Guide on Guide {
       title

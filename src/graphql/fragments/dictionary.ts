@@ -8,6 +8,6 @@ export const DICTIONARY_FRAGMENT = `
 `;
 
 export const DICTIONARY_FRAGMENT_DEFINITION = {
-  name: "DictionaryItem",
+  name: 'DictionaryItem',
   fragment: DICTIONARY_FRAGMENT,
 };

@@ -1,4 +1,4 @@
-import { HTML_FRAGMENT_DEFINITION } from "./html";
+import { HTML_FRAGMENT_DEFINITION } from './html';
 
 export const CHAPTER_FRAGMENT = `
   fragment ChapterFields on GuideChapter {
@@ -11,7 +11,7 @@ export const CHAPTER_FRAGMENT = `
 `;
 
 export const CHAPTER_FRAGMENT_DEFINITION = {
-  name: "ChapterFields",
+  name: 'ChapterFields',
   fragment: CHAPTER_FRAGMENT,
   dependencies: [HTML_FRAGMENT_DEFINITION.fragment],
 };

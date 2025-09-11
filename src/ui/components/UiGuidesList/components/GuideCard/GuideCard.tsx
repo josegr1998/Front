@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { Typography } from "@/ui/components/Typography/Typography";
+import Link from 'next/link';
+import { Typography } from '@/ui/components/Typography/Typography';
 
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 };
 
@@ -56,9 +56,9 @@ export const GuideCard = ({
           variant="ag-regular"
           className="mb-6 overflow-hidden"
           style={{
-            display: "-webkit-box",
+            display: '-webkit-box',
             WebkitLineClamp: 3,
-            WebkitBoxOrient: "vertical",
+            WebkitBoxOrient: 'vertical',
           }}
           asChild
         >

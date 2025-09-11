@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import { Guide } from "../../UiGuidesList.types";
+import { useState, useMemo } from 'react';
+import { Guide } from '../../UiGuidesList.types';
 
 type GuideListProps = {
   guides: Guide[];
@@ -33,7 +33,7 @@ const generateVisiblePageNumbers = (totalPages: number): number[] => {
 };
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 export const useGuideList = ({ guides, itemsPerPage }: GuideListProps) => {

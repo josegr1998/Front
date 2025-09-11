@@ -1,5 +1,5 @@
-import { Chapter } from "./chapter";
-import { Items, UiComponent } from "./common";
+import { Chapter } from './chapter';
+import { Items, UiComponent } from './common';
 
 export type Guide = {
   title: string;
