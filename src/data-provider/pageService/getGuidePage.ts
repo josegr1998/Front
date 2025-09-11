@@ -19,7 +19,7 @@ export const getGuidePage = async ({ slug }: Props): Promise<UiPage> => {
     query: createGuidePageQuery(slug),
     url,
     ...cacheOptions,
-    slug,
+    cacheKey: `/guide/${slug}`,
   });
 
   if (!guidePageResponse.guide_All.items.length) notFound();

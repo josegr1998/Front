@@ -1,5 +1,4 @@
 import { DEFAULT_REVALIDATE_TIME } from '@/data-provider/consts';
-import { generateCacheKey } from './utils/generateCacheKey';
 import { getRedisClient } from './utils/getRedisClient';
 
 type Props = {
@@ -9,45 +8,42 @@ type Props = {
   next?: {
     revalidate: number;
   };
-  slug: string;
+  cacheKey: string;
 };
 
 const REDIS_CACHE_TIME = 3600; // 1 hour
 
 export const getContent = async <T>({
   query,
-  cache = 'force-cache', // Use force-cache for Next.js static generation
+  cache = 'force-cache', 
   next = {
     revalidate: DEFAULT_REVALIDATE_TIME,
   },
   url,
-  slug,
+  cacheKey,
 }: Props): Promise<T> => {
   const startTime = Date.now();
 
   try {
     const redis = await getRedisClient();
-    const cacheKey = generateCacheKey(slug);
     const cachedData = await redis.get(cacheKey);
     await redis.ping();
 
     if (cachedData) {
-      console.log('Using Redis cache',slug);
+      console.log('Using Redis cache for key --->',cacheKey);
       const endTime = Date.now();
       const duration = endTime - startTime;
       console.log(`Cache hit! Retrieved from Redis in ${duration}ms`);
       return JSON.parse(cachedData) as T;
     }
 
-    // If no cache, add artificial delay
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    console.log('No Redis cache, fetching from API',slug);
+    console.log('No Redis cache, fetching from API for key --->', cacheKey);
 
-    // If no Redis cache, fetch from API
     const response = await fetch(url, {
       method: 'POST',
-      cache, // This will use force-cache for Next.js static generation
+      cache, 
       next,
       headers: {
         Authorization: `Bearer ${process.env.KONTENT_API_KEY}`,
@@ -64,7 +60,7 @@ export const getContent = async <T>({
 
     const endTime = Date.now();
     const duration = endTime - startTime;
-    console.log(`Request to ${url} took ${duration}ms`);
+    console.log(`Request to ${url} for key ${cacheKey} took ${duration}ms`);
 
     return data as T;
   } catch (error) {

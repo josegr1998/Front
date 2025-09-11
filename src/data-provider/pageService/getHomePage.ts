@@ -18,14 +18,14 @@ export const getHomePage = async (): Promise<UiPage> => {
     query: HOME_PAGE_QUERY,
     url,
     ...cacheOptions,
-    slug: '/home',
+    cacheKey: 'home',
   });
 
   const guidesListResponse = await getContent<GuideResponse>({
     query: GUIDES_QUERY,
     url,
     ...cacheOptions,
-    slug: '/guides-list',
+    cacheKey: 'guides-list',
   });
 
   const guides = guidesListResponse.guide_All.items;

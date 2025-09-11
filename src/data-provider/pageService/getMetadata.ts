@@ -13,7 +13,7 @@ export const getMetadata = async (slug: string) => {
       query: GUIDE_PAGE_QUERY(slug),
       url,
       ...cacheOptions,
-      slug: 'metadata',
+      cacheKey: 'metadata',
     });
 
     const pageData = data.guide_All.items[0];

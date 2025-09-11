@@ -23,7 +23,7 @@ export async function generateStaticParams() {
     query: GUIDES_QUERY,
     url,
     ...cacheOptions,
-    slug: '/guides-params',
+    cacheKey: 'guides-list',
   });
 
   return guides.guide_All.items.map(guide => ({
