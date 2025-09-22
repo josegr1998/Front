@@ -45,7 +45,7 @@ export const mapGuideDetails = ({
     })),
     labels: {
       tableOfContentsLabel:
-        getDictionaryItem("dictionary_item___published") || "",
+        getDictionaryItem("dictionary_item___table_of_contents") || "",
       publishedDateLabel:
         getDictionaryItem("dictionary_item___published") || "",
     },
