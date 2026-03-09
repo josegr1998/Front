@@ -1,0 +1,335 @@
+.richText {
+    color: var(--muted-foreground);
+    line-height: 1.6;
+  }
+  
+  .richText h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .richText h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .richText h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .richText h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .richText h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .richText h6 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .richText p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--muted-foreground);
+  }
+  
+  .richText p:first-child {
+    margin-top: 0;
+  }
+  
+  .richText p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Add spacing between consecutive paragraphs */
+  .richText p + p {
+    margin-top: 1rem;
+  }
+  
+  /* Add spacing between headings and paragraphs */
+  .richText h1 + p,
+  .richText h2 + p,
+  .richText h3 + p,
+  .richText h4 + p,
+  .richText h5 + p,
+  .richText h6 + p {
+    margin-top: 0.75rem;
+  }
+  
+  /* Add spacing between paragraphs and headings */
+  .richText p + h1,
+  .richText p + h2,
+  .richText p + h3,
+  .richText p + h4,
+  .richText p + h5,
+  .richText p + h6 {
+    margin-top: 1.5rem;
+  }
+  
+  .richText strong {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  
+  .richText em {
+    font-style: italic;
+    color: var(--muted-foreground);
+  }
+  
+  .richText u {
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-underline-offset: 0.125rem;
+  }
+  
+  .richText s {
+    text-decoration: line-through;
+    color: var(--muted-foreground);
+  }
+  
+  .richText mark {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .richText small {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+  
+  .richText sub {
+    font-size: 0.75rem;
+    vertical-align: sub;
+  }
+  
+  .richText sup {
+    font-size: 0.75rem;
+    vertical-align: super;
+  }
+  
+  .richText ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--muted-foreground);
+  }
+  
+  .richText ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--muted-foreground);
+  }
+  
+  .richText li {
+    margin-bottom: 0.25rem;
+  }
+  
+  .richText li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .richText blockquote {
+    border-left: 0.25rem solid var(--primary);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--muted-foreground);
+    background-color: var(--background);
+    border-radius: 0.25rem;
+    padding: 1rem;
+  }
+  
+  .richText pre {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .richText code {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--foreground);
+  }
+  
+  .richText pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--foreground);
+  }
+  
+  .richText kbd {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--foreground);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .richText samp {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--foreground);
+  }
+  
+  .richText var {
+    font-style: italic;
+    color: var(--muted-foreground);
+  }
+  
+  .richText a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-underline-offset: 0.125rem;
+    transition: color 0.2s ease;
+  }
+  
+  .richText a:hover {
+    color: var(--primary);
+    text-decoration-color: var(--primary);
+  }
+  
+  .richText abbr {
+    border-bottom: 1px dotted var(--border);
+    cursor: help;
+  }
+  
+  .richText cite {
+    font-style: italic;
+    color: var(--muted-foreground);
+  }
+  
+  .richText q {
+    font-style: italic;
+    color: var(--muted-foreground);
+  }
+  
+  .richText q::before {
+    content: '"';
+  }
+  
+  .richText q::after {
+    content: '"';
+  }
+  
+  .richText time {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
+  
+  .richText table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .richText thead {
+    background-color: var(--background);
+  }
+  
+  .richText th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .richText td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted-foreground);
+  }
+  
+  .richText tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .richText tbody tr:hover {
+    background-color: var(--background);
+  }
+  
+  .richText hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  
+  .richText div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .richText div:first-child {
+    margin-top: 0;
+  }
+  
+  .richText div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .richText span {
+    color: inherit;
+  }
+  
+  /* First child elements shouldn't have top margin */
+  .richText > *:first-child {
+    margin-top: 0;
+  }
+  
+  /* Last child elements shouldn't have bottom margin */
+  .richText > *:last-child {
+    margin-bottom: 0;
+  } 
