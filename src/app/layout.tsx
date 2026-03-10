@@ -29,10 +29,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <UiHeader {...siteConfig.header} />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <UiHeader title="Mile" links={siteConfig.header.links} />
         {children}
         <UiFooter {...siteConfig.footer} />
       </body>

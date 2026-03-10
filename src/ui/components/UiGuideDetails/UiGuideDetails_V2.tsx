@@ -36,45 +36,8 @@ export const UiGuideDetails_V2 = ({
       {/* Content Grid */}
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {chapters.map((chapter, index) => (
-              <article
-                key={index}
-                id={`chapter-${index}`}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                        {chapter.chapterTitle}
-                      </h2>
-                      {chapter.chapterName && (
-                        <div className="text-gray-600 leading-relaxed">
-                          <RichText contentHtml={chapter.chapterName} />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {chapter.contentHtml && (
-                    <div className="prose prose-lg max-w-none">
-                      <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-indigo-500">
-                        <RichText contentHtml={chapter.contentHtml} />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
+          {/* Sidebar (placed first in DOM, but will appear after on mobile via order) */}
+          <div className="order-2 lg:order-1 lg:col-span-1">
             <div className="sticky top-8">
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
@@ -123,6 +86,43 @@ export const UiGuideDetails_V2 = ({
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="order-1 lg:order-2 lg:col-span-2 space-y-8">
+            {chapters.map((chapter, index) => (
+              <article
+                key={index}
+                id={`chapter-${index}`}
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                        {chapter.chapterTitle}
+                      </h2>
+                      {chapter.chapterName && (
+                        <div className="text-gray-600 leading-relaxed">
+                          <RichText contentHtml={chapter.chapterName} />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {chapter.contentHtml && (
+                    <div className="prose prose-lg max-w-none">
+                      <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-indigo-500">
+                        <RichText contentHtml={chapter.contentHtml} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>
