@@ -52,7 +52,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
             {/* CTA Button */}
             <Link
               href="/guides"
-              className="ml-4 inline-flex items-center px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] bg-[var(--primary)] rounded-lg hover:bg-[var(--primary)]/90 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+              className="ml-4 inline-flex items-center px-4 py-2 text-sm font-medium text-[var(--destructive-foreground)] bg-[var(--destructive)] rounded-lg hover:bg-[var(--destructive)]/90 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
             >
               Get Started
               <svg
@@ -125,7 +125,7 @@ export const UiHeader = ({ title, links }: UiHeaderProps) => {
             {/* Mobile CTA */}
             <Link
               href="/guides"
-              className="block mx-4 mt-4 px-4 py-3 text-sm font-medium text-center text-[var(--primary-foreground)] bg-[var(--primary)] rounded-lg hover:bg-[var(--primary)]/90 transition-colors duration-200"
+              className="block mx-4 mt-4 px-4 py-3 text-sm font-medium text-center text-[var(--destructive-foreground)] bg-[var(--destructive)] rounded-lg hover:bg-[var(--destructive)]/90 transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               Get Started

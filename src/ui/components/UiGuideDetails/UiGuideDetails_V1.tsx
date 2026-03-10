@@ -20,13 +20,17 @@ export const UiGuideDetails_V1 = ({
       />
 
       <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="flex gap-12">
-          <GuideDetailsContent chapters={chapters} />
+        <div className="flex flex-col lg:flex-row gap-12">
+          <div className="order-2 lg:order-1 lg:w-80">
+            <GuideDetailSidebar
+              chapters={chapters}
+              tableOfContentsLabel={labels.tableOfContentsLabel}
+            />
+          </div>
 
-          <GuideDetailSidebar
-            chapters={chapters}
-            tableOfContentsLabel={labels.tableOfContentsLabel}
-          />
+          <div className="order-1 lg:order-2 flex-1">
+            <GuideDetailsContent chapters={chapters} />
+          </div>
         </div>
       </div>
     </div>
